@@ -44,3 +44,10 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## create a .env file under the root folder and add the following details
+REACT_APP_PORT=3000
+REACT_APP_BASE_URL=http://localhost:8080
+REACT_APP_GOOGLE_KEY=<REPLACE_WITH_YOUR_GOOGLE_API>
+
