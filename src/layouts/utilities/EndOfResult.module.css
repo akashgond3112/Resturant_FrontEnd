@@ -1,0 +1,83 @@
+.main {
+  position: relative;
+  max-width: 110rem;
+  max-height: initial;
+  margin: 0px auto;
+}
+
+.container {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  width: 30rem;
+  margin: 3rem auto 5rem;
+}
+
+.message_holder {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  max-width: 37.5rem;
+}
+
+.message_holder > h3 {
+  color: rgb(28, 28, 28);
+  font-size: 2.5rem;
+  line-height: 1.2;
+  font-weight: 500;
+  margin: 0px 0px 0.5rem;
+}
+
+.message_holder > h3 {
+  margin: 0px 2rem 0px 0px;
+  margin-block-end: 0px;
+  color: rgb(130, 130, 130);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+.img_hold {
+  width: 12.5rem;
+}
+
+.image_holder {
+  position: relative;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img_background {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  background: linear-gradient(
+      to right,
+      rgb(248, 248, 248) 0%,
+      rgb(255, 255, 255) 10%,
+      rgb(248, 248, 248) 40%,
+      rgb(248, 248, 248) 100%
+    )
+    no-repeat rgb(248, 248, 248);
+  opacity: 0;
+  transition: opacity 0.25s ease-out 0s;
+  will-change: opacity;
+  border-radius: inherit;
+  animation: 1.5s linear 0s infinite normal forwards running jCOzbu;
+}
+
+.end_of_result_image {
+  width: 100%;
+  height: 100%;
+  transform: none;
+  opacity: 1;
+  will-change: transform, opacity;
+  border-radius: inherit;
+  filter: unset;
+  transition: opacity 0.25s ease 0s, transform 0.25s ease 0s;
+}

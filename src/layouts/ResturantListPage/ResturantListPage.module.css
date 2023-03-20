@@ -1,0 +1,7 @@
+.container {
+  margin-right: 15%;
+  margin-left: 15%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

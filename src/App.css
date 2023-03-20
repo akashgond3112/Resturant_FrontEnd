@@ -1,0 +1,67 @@
+:root {
+  --mainOpacity: rgba(0, 0, 0, 0.55);
+}
+
+.header {
+  background-image:
+    url("./Images/PublicImages/Resturant_Navbar.jpg");
+  opacity: var(--mainOpacity);
+  height: 35em !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.main-color {
+  background-color: #549fc2;
+}
+
+.col-image-left {
+  background-image: url("./Images/PublicImages/Lunch1_vlksgq.webp");
+  height: 25em !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.col-image-right {
+  background-image: url("./Images/PublicImages/foodpanda-model1-opt-scaled.jpg");
+  height: 25em !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lost-image {
+  background-image: url("./Images/PublicImages/Restaurant-Queries.png");
+  height: 25em !important;
+  width: "720";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homepage-carousel-title {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.book-div {
+  width: 480px;
+  height: 384px;
+}
+
+.inactiveLink {
+  pointer-events: none;
+  cursor: default;
+}
