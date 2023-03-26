@@ -1,3 +1,6 @@
+import Northeast from "./Northeast";
+import Southwest from "./Southwest";
+
 class Viewport {
   northeast: Northeast;
   southwest: Southwest;

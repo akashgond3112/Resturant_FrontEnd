@@ -1,3 +1,5 @@
+import Period from "./Period";
+
 class CurrentOpeningHours {
   open_now: boolean;
   periods: Period[];
