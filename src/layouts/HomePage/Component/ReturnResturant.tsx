@@ -1,4 +1,4 @@
-import ResturantModal from "../../../models/Resturant/ResturantModel";
+import ResturantModal from "../../../models/Resturant/ResturantModal";
 import { Rating } from "./Rating";
 import classes from "./ReturnResturant.module.css";
 import { useGetDistance } from "../hooks/use-getDistance";

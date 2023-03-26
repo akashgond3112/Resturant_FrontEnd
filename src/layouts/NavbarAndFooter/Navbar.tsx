@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import classes from "./NavBar.module.css";
 import { SuggestedRestaurant } from "../AutoSuggestion/SuggestedRestaurant";
 import { useEffect, useState } from "react";
-import ResturantModal from "../../models/Resturant/ResturantModel";
+import ResturantModal from "../../models/Resturant/ResturantModal";
 
 export const Navbar = () => {
   const [display, setDisplay] = useState(false);

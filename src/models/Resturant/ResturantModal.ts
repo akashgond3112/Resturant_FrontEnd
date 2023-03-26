@@ -1,108 +1,60 @@
-import AddressComponent from "../address/AddressComponent";
 import Geometry from "../location/Geometry";
-import CurrentOpeningHours from "../openingClosingHours/CurrentOpeningHours";
 import OpeningHours from "../openingClosingHours/OpeningHours";
 import Photo from "../photo/Photo";
-import Review from "../reviews/Review";
 import PlusCode from "../utilities/PlusCode";
 
 class ResturantModal {
-  address_components: AddressComponent[];
-  adr_address: string;
   business_status: string;
-  current_opening_hours: CurrentOpeningHours;
-  delivery: boolean;
-  dine_in: boolean;
   formatted_address: string;
-  formatted_phone_number: string;
   geometry: Geometry;
   icon: string;
   icon_background_color: string;
   icon_mask_base_uri: string;
-  international_phone_number: string;
   name: string;
   opening_hours: OpeningHours;
   photos: Photo[];
   place_id: string;
   plus_code: PlusCode;
+  price_level: number;
   rating: number;
   reference: string;
-  reservable: boolean;
-  reviews: Review[];
-  serves_beer: boolean;
-  serves_dinner: boolean;
-  serves_wine: boolean;
-  takeout: boolean;
   types: string[];
-  url: string;
   user_ratings_total: number;
-  utc_offset: number;
-  vicinity: string;
 
   constructor(
-    address_components: AddressComponent[],
-    adr_address: string,
-    business_status: string,
-    current_opening_hours: CurrentOpeningHours,
-    delivery: boolean,
-    dine_in: boolean,
-    formatted_address: string,
-    formatted_phone_number: string,
-    geometry: Geometry,
-    icon: string,
-    icon_background_color: string,
-    icon_mask_base_uri: string,
-    international_phone_number: string,
-    name: string,
-    opening_hours: OpeningHours,
-    photos: Photo[],
-    place_id: string,
-    plus_code: PlusCode,
-    rating: number,
-    reference: string,
-    reservable: boolean,
-    reviews: Review[],
-    serves_beer: boolean,
-    serves_dinner: boolean,
-    serves_wine: boolean,
-    takeout: boolean,
-    types: string[],
-    url: string,
-    user_ratings_total: number,
-    utc_offset: number,
-    vicinity: string
+    _name: string,
+    _opening_hours: OpeningHours,
+    _photos: Photo[],
+    _place_id: string,
+    _rating: number,
+    _user_ratings_total: number,
+    _formatted_address: string,
+    _price_level: number,
+    _business_status?: string,
+    _geometry?: Geometry,
+    _icon?: string,
+    _icon_background_color?: string,
+    _icon_mask_base_uri?: string,
+    _plus_code?: PlusCode,
+    _reference?: string,
+    _types?: string[]
   ) {
-    this.address_components = address_components;
-    this.adr_address = adr_address;
-    this.business_status = business_status;
-    this.current_opening_hours = current_opening_hours;
-    this.delivery = delivery;
-    this.dine_in = dine_in;
-    this.formatted_address = formatted_address;
-    this.formatted_phone_number = formatted_phone_number;
-    this.geometry = geometry;
-    this.icon = icon;
-    this.icon_background_color = icon_background_color;
-    this.icon_mask_base_uri = icon_mask_base_uri;
-    this.international_phone_number = international_phone_number;
-    this.name = name;
-    this.opening_hours = opening_hours;
-    this.photos = photos;
-    this.place_id = place_id;
-    this.plus_code = plus_code;
-    this.rating = rating;
-    this.reference = reference;
-    this.reservable = reservable;
-    this.reviews = reviews;
-    this.serves_beer = serves_beer;
-    this.serves_dinner = serves_dinner;
-    this.serves_wine = serves_wine;
-    this.takeout = takeout;
-    this.types = types;
-    this.url = url;
-    this.user_ratings_total = user_ratings_total;
-    this.utc_offset = utc_offset;
-    this.vicinity = vicinity;
+    this.name = _name;
+    this.opening_hours = _opening_hours;
+    this.photos = _photos;
+    this.place_id = _place_id;
+    this.rating = _rating;
+    this.user_ratings_total = _user_ratings_total;
+    this.formatted_address = _formatted_address;
+    this.price_level = _price_level;
+    this.business_status = _business_status!;
+    this.geometry = _geometry!;
+    this.icon = _icon!;
+    this.icon_background_color = _icon_background_color!;
+    this.icon_mask_base_uri = _icon_mask_base_uri!;
+    this.plus_code = _plus_code!;
+    this.reference = _reference!;
+    this.types = _types!;
   }
 }
 

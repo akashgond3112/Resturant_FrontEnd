@@ -1,4 +1,4 @@
-import ResturantModal from "../../models/Resturant/ResturantModel";
+import ResturantModal from "../../models/Resturant/ResturantModal";
 import classes from "./SuggestedRestaurant.module.css";
 
 export const SuggestedRestaurant: React.FC<{ resaurant: ResturantModal }> = (

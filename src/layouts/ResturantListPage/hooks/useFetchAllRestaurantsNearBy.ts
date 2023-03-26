@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ResturantModal from "../../../models/Resturant/ResturantModel";
+import ResturantModal from "../../../models/Resturant/ResturantModal";
 
 export const useFetchAllRestaurantsNearBy = (
   lat: number,
