@@ -1,7 +1,7 @@
-import Geometry from "./Geometry";
-import OpeningHours from "./OpeningHours";
-import Photo from "./Photo";
-import PlusCode from "./PlusCode";
+import Geometry from "../location/Geometry";
+import OpeningHours from "../openingClosingHours/OpeningHours";
+import Photo from "../photo/Photo";
+import PlusCode from "../utilities/PlusCode";
 
 class ResturantModal {
   business_status: string;

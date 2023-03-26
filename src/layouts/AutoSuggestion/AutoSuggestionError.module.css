@@ -1,0 +1,19 @@
+.auto_suggestion_error_holder {
+  padding-left: 1.6rem;
+}
+
+.auto_suggestion_error_primary {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin: 0px;
+  color: rgb(156, 156, 156);
+  font-weight: 500;
+}
+
+.auto_suggestion_error_secondary {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  margin: 0px;
+  color: rgb(156, 156, 156);
+  font-weight: 400;
+}
