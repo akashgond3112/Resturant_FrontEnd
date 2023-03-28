@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { useFetchAllRestaurantsNearBy } from "./hooks/useFetchAllRestaurantsNearBy";
+import { useFetchAllRestaurantsNearBy } from "../../hooks/useFetchAllRestaurantsNearBy";
 import { SpinnerLoading } from "../utilities/Spinner";
 import classes from "./ResturantListPage.module.css";
 import { ReturnResturant } from "../HomePage/Component/ReturnResturant";

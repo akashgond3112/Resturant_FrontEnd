@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { ReturnResturant } from "./ReturnResturant";
 import { SpinnerLoading } from "../../utilities/Spinner";
-import { useFetchAllRestaurantsNearBy } from "../../ResturantListPage/hooks/useFetchAllRestaurantsNearBy";
+import { useFetchAllRestaurantsNearBy } from "../../../hooks/useFetchAllRestaurantsNearBy";
 
 export const Carousel = () => {
-  const [lat, setLat] = useState(54.9805);
-  const [lng, setLong] = useState(-1.6139);
+  const [lat, setLat] = useState(0);
+  const [lng, setLong] = useState(0);
   const { resturants, isLoading, httpError } = useFetchAllRestaurantsNearBy(
     lat,
     lng,
     ""
   );
 
-  // console.log("Fetching resturant again lat & lng changed");
-  // navigator.geolocation.getCurrentPosition((position) => {
-  //   const { latitude, longitude } = position.coords;
-  //   setLat(latitude);
-  //   setLong(longitude);
-  // });
+  console.log("Fetching resturant again lat & lng changed" + resturants.length);
+  navigator.geolocation.getCurrentPosition((position) => {
+    const { latitude, longitude } = position.coords;
+    setLat(latitude);
+    setLong(longitude);
+  });
 
   if (isLoading) {
     return <SpinnerLoading />;

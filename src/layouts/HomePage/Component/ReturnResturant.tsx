@@ -1,7 +1,7 @@
 import ResturantModal from "../../../models/Resturant/ResturantModal";
 import { Rating } from "./Rating";
 import classes from "./ReturnResturant.module.css";
-import { useGetDistance } from "../hooks/use-getDistance";
+import { useGetDistance } from "../../../hooks/use-getDistance";
 
 export const ReturnResturant: React.FC<{ resaurant: ResturantModal }> = (
   props

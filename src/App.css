@@ -6,7 +6,7 @@
   background-image:
     url("./Images/PublicImages/Resturant_Navbar.jpg");
   opacity: var(--mainOpacity);
-  height: 20em !important;
+  height: 25em !important;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
