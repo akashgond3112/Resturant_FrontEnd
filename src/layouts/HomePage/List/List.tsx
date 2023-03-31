@@ -22,13 +22,15 @@ export const List: React.FC<{
   const [eleRefs, setEleRefs] = useState([]);
 
   useEffect(() => {
-    setEleRefs(
-      Array(props.places.length)
-        .fill(0)
-        .map((_, i: number) => eleRefs[i] || createRef())
-    );
+    const refs: [] | ((prevState: never[]) => never[]) = [];
+    for (let i = 0; i < props.places?.length; i++) {
+      refs[i] = eleRefs[i] || createRef();
+    }
+    console.log(refs);
+
+    setEleRefs(refs);
   }, [props.places]);
-  
+
   return (
     <div className={classes.container}>
       <Typography variant="h5">Restaurants around you.</Typography>
@@ -39,23 +41,36 @@ export const List: React.FC<{
       ) : (
         <>
           {/* <FormControl className={classes.formControl}>
-        <InputLabel id="type">Type</InputLabel>
-        <Select
-          id="type"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-        >
-          <MenuItem value="restaurants">Restaurants</MenuItem>
-          <MenuItem value="hotels">Hotels</MenuItem>
-          <MenuItem value="attractions">Attractions</MenuItem>
-        </Select>
-      </FormControl> */}
+            <InputLabel id="type">Type</InputLabel>
+            <Select
+              id="type"
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+            >
+              <MenuItem value="restaurants">Restaurants</MenuItem>
+              <MenuItem value="hotels">Hotels</MenuItem>
+              <MenuItem value="attractions">Attractions</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl className={classes.formControl}>
+            <InputLabel id="rating">Rating</InputLabel>
+            <Select
+              id="rating"
+              value={rating}
+              onChange={(e) => setRating(e.target.value)}
+            >
+              <MenuItem value="">All</MenuItem>
+              <MenuItem value="3">Above 3.0</MenuItem>
+              <MenuItem value="4">Above 4.0</MenuItem>
+              <MenuItem value="4.5">Above 4.5</MenuItem>
+            </Select>
+          </FormControl> */}
           <Grid container spacing={2} className={classes.list}>
             {props.places?.map((place: any, i: number) => (
               <Grid key={i} item xs={12}>
                 <RestaurantDetails
                   place={place}
-                  selected={Number(props.childClicked === i)}
+                  selected={Number(props.childClicked) === i}
                   refProp={eleRefs[i]}
                 />
               </Grid>

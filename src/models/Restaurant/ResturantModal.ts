@@ -29,7 +29,7 @@ class ResturantModal {
     _rating: number,
     _user_ratings_total: number,
     _formatted_address: string,
-    _price_level: number,
+    _price_level?: number,
     _business_status?: string,
     _geometry?: Geometry,
     _icon?: string,
@@ -46,7 +46,7 @@ class ResturantModal {
     this.rating = _rating;
     this.user_ratings_total = _user_ratings_total;
     this.formatted_address = _formatted_address;
-    this.price_level = _price_level;
+    this.price_level = _price_level!;
     this.business_status = _business_status!;
     this.geometry = _geometry!;
     this.icon = _icon!;

@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 import classes from "./NavBar.module.css";
 import { SuggestedRestaurant } from "../AutoSuggestion/SuggestedRestaurant";
 import { useEffect, useState } from "react";
-import ResturantModal from "../../models/Resturant/ResturantModal";
+import Restaurant from "../../models/Restaurant/Restaurant";
 
 export const Navbar = () => {
   const [display, setDisplay] = useState(false);
-  const [resturants, setResturants] = useState<ResturantModal[]>([]);
+  const [resturants, setResturants] = useState<Restaurant[]>([]);
   const [search, setSearch] = useState("");
   const [httpError, setHttpError] = useState(null);
 
@@ -28,7 +28,7 @@ export const Navbar = () => {
 
       const responseData = responseJson.results;
 
-      const loadedResturants: ResturantModal[] = [];
+      const loadedResturants: Restaurant[] = [];
 
       for (const key in responseData) {
         loadedResturants.push({
@@ -48,6 +48,27 @@ export const Navbar = () => {
           plus_code: responseData[key].plus_code,
           reference: responseData[key].reference,
           types: responseData[key].types,
+          address_components: [],
+          adr_address: "",
+          current_opening_hours: {
+            open_now: false,
+            periods: [],
+            weekday_text: [],
+          },
+          delivery: false,
+          dine_in: false,
+          formatted_phone_number: "",
+          international_phone_number: "",
+          reservable: false,
+          reviews: [],
+          serves_beer: false,
+          serves_dinner: false,
+          serves_wine: false,
+          takeout: false,
+          url: "",
+          utc_offset: 0,
+          vicinity: "",
+          website: ""
         });
       }
 

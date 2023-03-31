@@ -2,12 +2,13 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { useFetchAllRestaurantsNearBy } from "../../hooks/useFetchAllRestaurantsNearBy";
 import { SpinnerLoading } from "../utilities/Spinner";
 import classes from "./ResturantListPage.module.css";
-import { ReturnResturant } from "../HomePage/Component/ReturnResturant";
 import { EndOfResult } from "../utilities/EndOfResult";
+import { Carousel } from "./Carousel";
+import { ReturnResturant } from "./ReturnResturant";
 
 export const ResturantListPage = () => {
-  const [lat, setLat] = useState(0);
-  const [lng, setLong] = useState(0);
+  const [lat, setLat] = useState(54.9677423);
+  const [lng, setLong] = useState(-1.6224093);
   const [nextPageToken, setGetNextPageToken] = useState("");
 
   useEffect(() => {
@@ -17,7 +18,7 @@ export const ResturantListPage = () => {
       setLat(latitude);
       setLong(longitude);
     });
-  }, [lat, lng]);
+  }, []);
 
   const {
     resturants,
@@ -52,30 +53,35 @@ export const ResturantListPage = () => {
     );
   }
 
-
   return (
     <>
-      <div className={classes["container"]}>
-        {resturants.map((resaurant, index) => {
-          if (resturants.length === index + 1) {
-            return (
-              <div
-                ref={lastRestaurantElementRef}
-                key={resaurant.place_id}
-                className="mt-5"
-              >
-                <ReturnResturant resaurant={resaurant} />
-              </div>
-            );
-          } else {
-            return (
-              <div key={resaurant.place_id} className="mt-5">
-                <ReturnResturant resaurant={resaurant} />
-              </div>
-            );
-          }
-        })}
-      </div>
+      {resturants.length > 0 && (
+        <>
+          <Carousel restaurants={resturants} />
+          <div className={classes["container"]}>
+            {resturants.map((resaurant, index) => {
+              if (resturants.length === index + 1) {
+                return (
+                  <div
+                    ref={lastRestaurantElementRef}
+                    key={resaurant.place_id}
+                    className="mt-5"
+                  >
+                    <ReturnResturant resaurant={resaurant} />
+                  </div>
+                );
+              } else {
+                return (
+                  <div key={resaurant.place_id} className="mt-5">
+                    <ReturnResturant resaurant={resaurant} />
+                  </div>
+                );
+              }
+            })}
+          </div>
+        </>
+      )}
+
       {isLoading ? (
         <div>
           <SpinnerLoading />

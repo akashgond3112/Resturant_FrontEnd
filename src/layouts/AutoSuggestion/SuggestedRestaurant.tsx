@@ -1,9 +1,7 @@
-import ResturantModal from "../../models/Resturant/ResturantModal";
+import Restaurant from "../../models/Restaurant/Restaurant";
 import classes from "./SuggestedRestaurant.module.css";
 
-export const SuggestedRestaurant: React.FC<{ resaurant: ResturantModal }> = (
-  props
-) => {
+export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) => {
   if (props.resaurant.photos[0] === undefined) {
     return null;
   }

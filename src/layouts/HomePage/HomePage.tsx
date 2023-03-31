@@ -3,17 +3,17 @@ import { ExploreTopResturant } from "./Component/ExploreTopResturant";
 import { List } from "./List/List";
 import { Map } from "./Map/Map";
 import { useEffect, useState } from "react";
+import { fetchRestaurants } from "../../api/fetchRestaurants";
 
-import { fetchRestaurants } from "../../hooks/fetchRestaurants";
 
 export const HomePage = () => {
   const [places, setPlaces] = useState([]);
-  const [coords, setCoords] = useState({});
+  const [coords, setCoords] = useState({ lat: 54.9677423, lng: -1.6224093 });
   const [bounds, setBounds] = useState({
     sw: { lat: "", lng: "" },
     ne: { lng: "", lat: "" },
   });
-  const [childClicked, setChildClicked] = useState(null);
+  const [childClicked, setChildClicked] = useState(0);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -25,15 +25,12 @@ export const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    console.log(coords, bounds);
     setLoading(true);
-    fetchRestaurants("restaurants", bounds.sw, bounds.ne).then((data) => {
-      console.log(data);
-
+    fetchRestaurants(coords.lat, coords.lng, "").then((data) => {
       setPlaces(data);
       setLoading(false);
     });
-  }, [bounds, coords]);
+  }, [bounds, coords]);  
 
   return (
     <>

@@ -1,11 +1,9 @@
-import ResturantModal from "../../../models/Resturant/ResturantModal";
+import { useGetDistance } from "../../hooks/use-getDistance";
+import Restaurant from "../../models/Restaurant/Restaurant";
 import { Rating } from "./Rating";
 import classes from "./ReturnResturant.module.css";
-import { useGetDistance } from "../../../hooks/use-getDistance";
 
-export const ReturnResturant: React.FC<{ resaurant: ResturantModal }> = (
-  props
-) => {
+export const ReturnResturant: React.FC<{ resaurant: Restaurant }> = (props) => {
   const distance = useGetDistance(
     props.resaurant.geometry.location.lat,
     props.resaurant.geometry.location.lng,
