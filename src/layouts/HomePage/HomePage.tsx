@@ -13,7 +13,7 @@ export const HomePage = () => {
     sw: { lat: "", lng: "" },
     ne: { lng: "", lat: "" },
   });
-  const [childClicked, setChildClicked] = useState(0);
+  const [childClicked, setChildClicked] = useState(null);
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {

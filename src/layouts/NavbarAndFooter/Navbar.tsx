@@ -3,19 +3,29 @@ import classes from "./NavBar.module.css";
 import { SuggestedRestaurant } from "../AutoSuggestion/SuggestedRestaurant";
 import { useEffect, useState } from "react";
 import Restaurant from "../../models/Restaurant/Restaurant";
+import { AutoSuggestionError } from "../AutoSuggestion/AutoSuggestionError";
 
 export const Navbar = () => {
-  const [display, setDisplay] = useState(false);
+  const [lat, setLat] = useState(54.9677423);
+  const [lng, setLong] = useState(-1.6224093);
+  const [errorDisplay, setErrorDisplay] = useState(false);
   const [resturants, setResturants] = useState<Restaurant[]>([]);
   const [search, setSearch] = useState("");
-  const [httpError, setHttpError] = useState(null);
 
   useEffect(() => {
-    setHttpError(null);
-    console.log(search);
+    navigator.geolocation.getCurrentPosition((position) => {
+      const { latitude, longitude } = position.coords;
+
+      setLat(latitude);
+      setLong(longitude);
+    });
+  }, []);
+
+  useEffect(() => {
+    setErrorDisplay(false);
 
     const fetchNearByResturants = async () => {
-      let url: string = `http://localhost:8080/api/v1/restaurants/search/autoSuggest?keyword=${search}&lat=54.990617&lng=-1.6046678&radius=2000`;
+      let url: string = `http://localhost:8080/api/v1/restaurants/search/autoSuggest?keyword=${search}&lat=${lat}&lng=${lng}&radius=1600`;
 
       // url = `${process.env.REACT_APP_BASE_URL}/api/v1/restaurants?lat=${lat}&lng=${lng}&query=restaurants&radius=2000`;
 
@@ -68,19 +78,25 @@ export const Navbar = () => {
           url: "",
           utc_offset: 0,
           vicinity: "",
-          website: ""
+          website: "",
         });
       }
 
-      setResturants(loadedResturants);
+      if (loadedResturants.length > 0) {
+        setResturants(loadedResturants);
+        setErrorDisplay(false);
+      } else {
+        setErrorDisplay(true);
+      }
     };
 
     if (search.length >= 3) {
       fetchNearByResturants().catch((error: any) => {
-        setHttpError(error.message);
+        setErrorDisplay(true);
       });
     } else {
       setResturants([]);
+      setErrorDisplay(false);
     }
   }, [search]);
 
@@ -146,6 +162,7 @@ export const Navbar = () => {
                         ))}
                       </div>
                     )}
+                    {errorDisplay && <AutoSuggestionError />}
                   </div>
                 </div>
               </div>
