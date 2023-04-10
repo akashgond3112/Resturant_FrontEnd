@@ -1,0 +1,429 @@
+{
+    "html_attributions": [],
+    "result": {
+        "address_components": [
+            {
+                "long_name": "7",
+                "short_name": "7",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Marlborough Crescent",
+                "short_name": "Marlborough Cres",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Newcastle upon Tyne",
+                "short_name": "Newcastle upon Tyne",
+                "types": [
+                    "postal_town"
+                ]
+            },
+            {
+                "long_name": "Tyne and Wear",
+                "short_name": "Tyne and Wear",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "England",
+                "short_name": "England",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United Kingdom",
+                "short_name": "GB",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "NE1 4EE",
+                "short_name": "NE1 4EE",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "adr_address": "<span class=\"street-address\">7 Marlborough Crescent</span>, <span class=\"locality\">Newcastle upon Tyne</span> <span class=\"postal-code\">NE1 4EE</span>, <span class=\"country-name\">UK</span>",
+        "business_status": "OPERATIONAL",
+        "current_opening_hours": {
+            "open_now": true,
+            "periods": [
+                {
+                    "close": {
+                        "date": "2023-04-10",
+                        "day": 1,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "date": "2023-04-09",
+                        "day": 0,
+                        "time": "0000",
+                        "truncated": true
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2023-04-11",
+                        "day": 2,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "date": "2023-04-10",
+                        "day": 1,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2023-04-12",
+                        "day": 3,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "date": "2023-04-11",
+                        "day": 2,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2023-04-13",
+                        "day": 4,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "date": "2023-04-12",
+                        "day": 3,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2023-04-14",
+                        "day": 5,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "date": "2023-04-13",
+                        "day": 4,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2023-04-15",
+                        "day": 6,
+                        "time": "0300"
+                    },
+                    "open": {
+                        "date": "2023-04-14",
+                        "day": 5,
+                        "time": "1500"
+                    }
+                },
+                {
+                    "close": {
+                        "date": "2023-04-15",
+                        "day": 6,
+                        "time": "2359",
+                        "truncated": true
+                    },
+                    "open": {
+                        "date": "2023-04-15",
+                        "day": 6,
+                        "time": "1500"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "Monday: 4:00 pm – 12:00 am",
+                "Tuesday: 4:00 pm – 12:00 am",
+                "Wednesday: 4:00 pm – 12:00 am",
+                "Thursday: 4:00 pm – 12:00 am",
+                "Friday: 3:00 pm – 3:00 am",
+                "Saturday: 3:00 pm – 12:00 am",
+                "Sunday: Open 24 hours"
+            ]
+        },
+        "delivery": true,
+        "dine_in": true,
+        "formatted_address": "7 Marlborough Cres, Newcastle upon Tyne NE1 4EE, UK",
+        "formatted_phone_number": "0191 261 2500",
+        "geometry": {
+            "location": {
+                "lat": 54.9677423,
+                "lng": -1.6224093
+            },
+            "viewport": {
+                "northeast": {
+                    "lat": 54.9691159802915,
+                    "lng": -1.620843219708498
+                },
+                "southwest": {
+                    "lat": 54.9664180197085,
+                    "lng": -1.623541180291502
+                }
+            }
+        },
+        "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/restaurant-71.png",
+        "icon_background_color": "#FF9E67",
+        "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/restaurant_pinlet",
+        "international_phone_number": "+44 191 261 2500",
+        "name": "Rumba Restaurant",
+        "opening_hours": {
+            "open_now": true,
+            "periods": [
+                {
+                    "close": {
+                        "day": 2,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "day": 1,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 3,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "day": 2,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 4,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "day": 3,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 5,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "day": 4,
+                        "time": "1600"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 6,
+                        "time": "0300"
+                    },
+                    "open": {
+                        "day": 5,
+                        "time": "1500"
+                    }
+                },
+                {
+                    "close": {
+                        "day": 1,
+                        "time": "0000"
+                    },
+                    "open": {
+                        "day": 6,
+                        "time": "1500"
+                    }
+                }
+            ],
+            "weekday_text": [
+                "Monday: 4:00 pm – 12:00 am",
+                "Tuesday: 4:00 pm – 12:00 am",
+                "Wednesday: 4:00 pm – 12:00 am",
+                "Thursday: 4:00 pm – 12:00 am",
+                "Friday: 3:00 pm – 3:00 am",
+                "Saturday: 3:00 pm – 12:00 am",
+                "Sunday: Open 24 hours"
+            ]
+        },
+        "photos": [
+            {
+                "height": 9000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/104239213967927131250\">Richard Common</a>"
+                ],
+                "photo_reference": "AUjq9jkDKU3kBOvIiuzfRU1El-NiE0J3hAd-8GqJdkSM0AO3vBXZIifoulKfLoWhrS_pMd3M0IILslQgWBRG82t0a4LL678kpUX1ETVOB2syXHMyErb-RzLOfGDTWLh-VdU36RDgFgw0y_qRBpuPuU2AnBWWGHo7Wz16yQL0KQ0fReu7eI5f",
+                "width": 12000
+            },
+            {
+                "height": 4618,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/106833369816609061354\">carolyn simpson</a>"
+                ],
+                "photo_reference": "AUjq9jl4YGhFlvRGBog8Wpu1fEqOV05JSk3LmdTGmrApdxkjP5c0utGwiV8_IDSljOiPc5A_XuIXGIj2TF1RLKO2iPXbQeJydfX2xgLs1quaBo1pCs7kRvZNiZyDlQq5Z9CVMs1WbTcsJTfu8O7qD_fRgvrb7dhrNtPDtDlSge_VRdGatkBH",
+                "width": 3464
+            },
+            {
+                "height": 2160,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/104621887310918646976\">Mark Butler</a>"
+                ],
+                "photo_reference": "AUjq9jlPJaqM3FYxLX2DaymsvVuvaDXRjgATzglGW5vYngNPE5axXoE9zn4dqP5tVri5BYIvbhKkOhNyvjDfsbkt_9HNf4CNpAl2GCYhlwwHFGK2OgKlPxq36vAm5IxEP1EzgrBYnUwizThAk_uO3rEkIOxtCFMu0uyzej19RuxLMx6GSqiK",
+                "width": 2160
+            },
+            {
+                "height": 4032,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/108266108611771083540\">Cesar Castillo</a>"
+                ],
+                "photo_reference": "AUjq9jk22eKKnPgW3ludpSITr1YyCIjL5TA0M3IQVIIT1ADt8Rb7Sw9SBAvGZvAPcjd5hBwX918oTsE6hY7e9ST46nyWM0LMYyKOfM0MYPAO8eqL7f--842lzsZ0MLuLwuExqi9WEB9_6RYCjOgag-fMaagaJi19w9--uAej0ae6caLg4ny-",
+                "width": 3024
+            },
+            {
+                "height": 4608,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/114961829685236234632\">Jēkabs Bumbieris</a>"
+                ],
+                "photo_reference": "AUjq9jknp1NheynQ_kC4lWSeokx_c4BGW0EG68o7G90wKFpxQEVlkHdQIBB75UGXUcDwdqY3Y7tNUqquvDfhuNPk_VRHwjD3FgEtMfkyT_ZFSRdPy227eal6qs92IbzH9Ntbpsc7Rj5Jsih9KEOxrgu07J7sMhpN_dgVqI1q-q3f6ULXs7go",
+                "width": 3456
+            },
+            {
+                "height": 1200,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100444423160484070463\">Malc UK</a>"
+                ],
+                "photo_reference": "AUjq9jni_8vn7HefNpZxBTvZBO2rXTC1giLdb5-1uXHzJdi5891aRjolpR-Fq0foipNm0ZT4ZEfN3nvbKV7ccOqJokl1VTZjadultBdvwIzUMEcQgvCh3afR1a6srgFEOMJH9kAf5EXyOJecbnYZkEEcCzrldR2ZwU3U84arj8ODQl-3Rud7",
+                "width": 1600
+            },
+            {
+                "height": 4000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101952699115550977984\">Harriet</a>"
+                ],
+                "photo_reference": "AUjq9jmP75DKrTRjIDzLb8owi8fU_waeHqjA-X_pKbpX1sQCoOSdAlQLzEdly7si7FUvYN9slbuVreeYSj04mC3ZPauQLNaMLsueyXMz0asQwlNofUWWtsQqpu6Ti5tfDYmo_HSAQHIGkTm4StMawThlYvTkUr733DLKjmBZ3dPvQaVzpamX",
+                "width": 3000
+            },
+            {
+                "height": 2268,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/116360250336445984883\">Lee Sproul</a>"
+                ],
+                "photo_reference": "AUjq9jmojau-KapM9DKE5pCBMLf5sCRytgq894kipo7qAslc_xVZlqBNflpoUbUH8JJ-gXrLOPGoldzVqQCw2uF1ywRAp49tVRut_tPLPcTJ8KcjJLvNmnyfxZBa59P1gtSEqjGXc50LWuTC4EHRa9CcdvMKR4tiEEwHq_yEjBWiz2uA7iy7",
+                "width": 4032
+            },
+            {
+                "height": 3000,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/101952699115550977984\">Harriet</a>"
+                ],
+                "photo_reference": "AUjq9jnAlBM3EDvHytojXj5Kw4vKspcnC2Hnq8-ryPnUs7tNOpe7ZLrbULRHnXWrXjNLYKaAWRvn18Ux8Ls_PAhTmvY4oNIUxZ5Tvsytoc1U-9isRXBVf4cA1zTGa2PZbI_xVh-C6PDP2ljeYGwxY_bjUV9ZQs0G0SuBrbCQ-qUl59BDydgi",
+                "width": 4000
+            },
+            {
+                "height": 1200,
+                "html_attributions": [
+                    "<a href=\"https://maps.google.com/maps/contrib/100444423160484070463\">Malc UK</a>"
+                ],
+                "photo_reference": "AUjq9jkz1Thi400k938s62S83MEIO7cy7o7oxEiTiwi7xFAYmSqGjbozWjSojiz3vYyr2S4ypfr508c4ctYiOpqp3hbDOuUxvgWrnSV-3Kg9VRO6oodfAFLX4qZX9i3LNCu-Domcl0cHDblncXNY4hqYQA_4hbK-59DaKMHLvusxKnz8cuuW",
+                "width": 1600
+            }
+        ],
+        "place_id": "ChIJKz8T7cZwfkgRl1NGkl4-zjQ",
+        "plus_code": {
+            "compound_code": "X99H+32 Newcastle upon Tyne, UK",
+            "global_code": "9C6WX99H+32"
+        },
+        "rating": 4.6,
+        "reference": "ChIJKz8T7cZwfkgRl1NGkl4-zjQ",
+        "reservable": true,
+        "reviews": [
+            {
+                "author_name": "Harriet",
+                "author_url": "https://www.google.com/maps/contrib/101952699115550977984/reviews",
+                "language": "en",
+                "original_language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ACB-R5Tj-kLIjsKF-zEsTqP1H6Kg8OgcAdtrAaUvlHZ-lw=s128-c0x00000000-cc-rp-mo-ba4",
+                "rating": 5,
+                "relative_time_description": "2 months ago",
+                "text": "Amazing!!\nCannot recommend this place highly enough.\nFood was to die for, people were lovely, music was great, facilities spotless.\nWorth every penny, and we will definitely be back!\nWe took their recommendations on the food and drink as we were very open to trying new things and it was all amazing. The signature cocktail was delicious and the food was beautifully presented with awesome flavours.\nThis place is a must try and I can't wait to go back.",
+                "time": 1674694993,
+                "translated": false
+            },
+            {
+                "author_name": "Piro Lowik",
+                "author_url": "https://www.google.com/maps/contrib/116228970754337250207/reviews",
+                "language": "en",
+                "original_language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AGNmyxZpnrdOxlmHPT6qaDXHA3VfZBEzIgoo3bLqY0VZ=s128-c0x00000000-cc-rp-mo-ba2",
+                "rating": 5,
+                "relative_time_description": "a month ago",
+                "text": "Food is amazing much rich in flavour would highly recommend.\nStaff very friendly, always around if needed something extra.\nAtmosphere is very unique, very friendly and family like atmosphere. Live music is really good and the salsa classes too.",
+                "time": 1677259871,
+                "translated": false
+            },
+            {
+                "author_name": "J Z",
+                "author_url": "https://www.google.com/maps/contrib/109129611466062824938/reviews",
+                "language": "en",
+                "original_language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AGNmyxZAMZjD6n5PG-Dif0iEsp_Q6LInqp5S62wobE1N=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "a month ago",
+                "text": "Really nice food. The owners were really nice  and recommended us local dishes and drinks. Definitely worth going!",
+                "time": 1677614635,
+                "translated": false
+            },
+            {
+                "author_name": "Graeme Miller",
+                "author_url": "https://www.google.com/maps/contrib/115452447585065694662/reviews",
+                "language": "en",
+                "original_language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a-/ACB-R5QDllTmclw3kJ1RPnDbF8oatRd7r0-PI2yBT2pc=s128-c0x00000000-cc-rp-mo",
+                "rating": 5,
+                "relative_time_description": "a month ago",
+                "text": "Lovely different food. Real Flavour explosion. Wonderful hosts and we will definitely be back. Delicious 😋",
+                "time": 1677604484,
+                "translated": false
+            },
+            {
+                "author_name": "Jēkabs Bumbieris",
+                "author_url": "https://www.google.com/maps/contrib/114961829685236234632/reviews",
+                "language": "en",
+                "original_language": "en",
+                "profile_photo_url": "https://lh3.googleusercontent.com/a/AGNmyxb6rh54mwoAlkbY4kPz6SKkKsKiCDW_eHPqGKpd=s128-c0x00000000-cc-rp-mo",
+                "rating": 4,
+                "relative_time_description": "4 years ago",
+                "text": "Delicious food, but the decor indoors seems a bit cheap. Good atmosphere overall despite that. We also had a salsa lesson after eating which was very fun.",
+                "time": 1540608059,
+                "translated": false
+            }
+        ],
+        "serves_beer": true,
+        "serves_dinner": true,
+        "serves_wine": true,
+        "takeout": true,
+        "types": [
+            "meal_takeaway",
+            "bar",
+            "restaurant",
+            "food",
+            "point_of_interest",
+            "establishment"
+        ],
+        "url": "https://maps.google.com/?cid=3805047311076578199",
+        "user_ratings_total": 162,
+        "utc_offset": 60,
+        "vicinity": "7 Marlborough Crescent, Newcastle upon Tyne"
+    },
+    "status": "OK"
+}

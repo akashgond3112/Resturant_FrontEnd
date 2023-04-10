@@ -5,7 +5,6 @@ import { Map } from "./Map/Map";
 import { useEffect, useState } from "react";
 import { fetchRestaurants } from "../../api/fetchRestaurants";
 
-
 export const HomePage = () => {
   const [places, setPlaces] = useState([]);
   const [coords, setCoords] = useState({ lat: 54.9677423, lng: -1.6224093 });
@@ -30,7 +29,7 @@ export const HomePage = () => {
       setPlaces(data);
       setLoading(false);
     });
-  }, [bounds, coords]);  
+  }, [bounds, coords]);
 
   return (
     <>

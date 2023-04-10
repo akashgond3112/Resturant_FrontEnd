@@ -20,7 +20,7 @@ export const Map: React.FC<{
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyAp9kJFu7_QJy9WfW4rgV9mBUsddMtIccU" }}
+        bootstrapURLKeys={{ key: `${process.env.REACT_APP_GOOGLE_KEY}` }}
         defaultCenter={props.coords}
         center={props.coords}
         defaultZoom={14}

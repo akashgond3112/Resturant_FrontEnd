@@ -1,15 +1,12 @@
 import {
   CircularProgress,
-  FormControl,
   Grid,
-  InputLabel,
-  MenuItem,
-  Select,
   Typography,
 } from "@mui/material";
 import React, { useState, useEffect, createRef } from "react";
 import { useListStyles } from "./ListModule";
 import { RestaurantDetails } from "../RestaurantDetails/RestaurantDetails";
+
 
 export const List: React.FC<{
   places: any;
