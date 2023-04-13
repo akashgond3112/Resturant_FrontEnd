@@ -1,11 +1,18 @@
-import React from 'react'
+import React from "react";
+import Section1 from "./component/Section1";
+import { useRestaurantPageStyles } from "./RestaurantPageModule";
+import Section2 from "./component/Section2";
 
-type Props = {}
+type Props = {};
 
-function RestaurantPage({}: Props) {
+const RestaurantPage = (props: Props) => {
+  const classes = useRestaurantPageStyles();
   return (
-    <div>RestaurantPage</div>
-  )
-}
+    <div className={classes.main}>
+      <Section1 />
+      <Section2 />
+    </div>
+  );
+};
 
-export default RestaurantPage
+export default RestaurantPage;

@@ -1,8 +1,7 @@
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import GoogleMapReact from "google-map-react";
-import { Paper, Rating, Typography, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mui/material";
 import { useMapStyles } from "./MapModule";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import Marker from "./Marker";
 
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
