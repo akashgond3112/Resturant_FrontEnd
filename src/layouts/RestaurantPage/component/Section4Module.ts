@@ -1,3 +1,4 @@
+import { BorderBottom } from "@mui/icons-material";
 import { createStyles, makeStyles } from "@mui/styles";
 
 export const useSection4Styles = makeStyles(() =>
@@ -163,6 +164,158 @@ export const useSection4Styles = makeStyles(() =>
       transition: "transform 0.4s ease 0s",
     },
     /* User Information End */
+    /* Rating section start */
+    ratingContainer: {
+      display: "flex",
+      margin: "1.8rem 0px 1rem",
+      alignItems: "center",
+      flexGrow: 0,
+      flexShrink: 0,
+    },
+    ratingMain: {
+      display: "flex",
+      alignItems: "center",
+      fontSize: "inherit",
+      cursor: "unset",
+    },
+    ratingHolder: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#0E5020",
+      color: "rgb(255, 255, 255)",
+      height: "1.6rem",
+      minWidth: "3rem",
+      padding: "0px 0.4rem",
+      fontSize: "1rem",
+      borderRadius: "0.6rem",
+      border: "1px solid rgb(14, 80, 32)",
+    },
+    ratingHolderPrimary: {
+      display: "block",
+      fontSize: "inherit",
+    },
+    ratingHolderPrimaryContent: {
+      display: "flex",
+      alignItems: "center",
+      fontSize: "inherit",
+      cursor: "unset",
+    },
+    ratingNumber: {
+      marginRight: "0.2rem",
+      fontWeight: "600",
+      fontSize: "inherit",
+      paddingBottom: "0.1rem",
+    },
+    ratingStarContainer: {
+      marginLeft: "0px",
+    },
+    ratingStarPrimary: {
+      display: "flex",
+      alignItems: "center",
+      cursor: "inherit",
+    },
+    ratingStarSecondary: {
+      display: "inline-block",
+      verticalAlign: "middle",
+      lineHeight: 1,
+    },
+    ratingContent: {
+      display: "block",
+      fontSize: "inherit",
+      marginLeft: "0.8rem",
+    },
+    ratingContentPrimary: {
+      fontWeight: 600,
+      fontSize: "1.2rem",
+      lineHeight: "1.8rem",
+      paddingBottom: "0px",
+      borderBottom: "unset",
+      color: "rgb(54, 54, 54)",
+    },
+    ratingContentSecondary: {
+      fontWeight: 400,
+      fontSize: "1rem",
+      lineHeight: "1.6rem",
+      paddingBottom: "0px",
+      borderBottom: "unset",
+      color: "rgb(54, 54, 54)",
+    },
+    timeStamp: {
+      composes: `$ratingContainer`,
+      marginLeft: "1rem",
+    },
+    time: {
+      fontSize: "1.1rem",
+      lineHeight: "1.5",
+      margin: "0px",
+      color: "rgb(156, 156, 156)",
+      marginLeft: "0.6rem",
+    },
+    /* Rating section end  */
+    /* Customer review start */
+    customerReview: {
+      lineHeight: "1.5",
+      margin: "0.5rem 0px 0.3rem",
+      color: "rgb(105, 105, 105)",
+      overflow: "break-word",
+      fontSize: "1.2rem",
+    },
+    /*ustomer review end   */
+    /* Number of comments and votes helpful start */
+    NoOfVotesCommnets: {
+      margin: "1rem 0px 0px",
+    },
+    counts: {
+      fontSize: "1.2rem",
+      lineHeight: 1.5,
+      margin: "0px",
+      color: "rgb(156, 156, 156)",
+    },
+    /* Number of comments and votes helpful end */
+    /* Review Action start */
+    actionContainer: {
+      display: "flex",
+      justifyContent: "flex-start",
+      borderBottom: "2px solid rgb(113, 113, 113)",
+      marginBottom:"2rem"
+    },
+    helpfulAndShareMain: {
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      margin: "0.5rem 1.5rem 0.5rem 0px",
+      padding: "1rem 0.5rem",
+      borderRadius: "6px",
+    },
+    commentMain: {
+      cursor: "pointer",
+      display: "flex",
+      alignItems: "center",
+      margin: "0.5rem 1.5rem 0.5rem 0px",
+      padding: "1rem 0.5rem",
+      borderRadius: "6px",
+      backgroundColor: "transparent",
+    },
+    symbolPrimary: {
+      display: "flex",
+      alignItems: "center",
+      cursor: "inherit",
+      size: "16",
+    },
+    symbolSecondary: {
+      display: "inline-block",
+      verticalAlign: "middle",
+      lineHeight: "1",
+      width: "16px",
+      height: "16px",
+    },
+    actionContent: {
+      margin: "0px 0px 0px 0.5rem",
+      color: "rgb(156, 156, 156)",
+      fontSize: "1.2rem",
+    },
+    /* Review Action end */
     "@media (min-width: 769px)": {
       //   main: {
       //     width: "calc(100% + 1rem)",

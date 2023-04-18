@@ -1,7 +1,6 @@
 import React from "react";
 import { useSection2Styles } from "./Section2Module";
 import { Rating } from "../../ResturantListPage/Rating";
-import data from "../../../data/restaurant.json";
 import MatchingDaySpan from "./MatchingDaySpan";
 import EventSeatOutlinedIcon from "@mui/icons-material/EventSeatOutlined";
 import SportsBarOutlinedIcon from "@mui/icons-material/SportsBarOutlined";
@@ -11,13 +10,12 @@ import TakeoutDiningOutlinedIcon from "@mui/icons-material/TakeoutDiningOutlined
 import FlatwareOutlinedIcon from "@mui/icons-material/FlatwareOutlined";
 import Direction from "./Direction/Direction";
 import Share from "./Share/Share";
+import Restaurant from "../../../models/Restaurant/Restaurant";
 
-type Props = {};
 
-const Section2 = (props: Props) => {
+export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection2Styles();
 
-  console.log(data.result);
 
   return (
     /* Information holder of the restaurant */
@@ -28,13 +26,15 @@ const Section2 = (props: Props) => {
           <div className={classes.informationContainer}>
             <div className={classes.informationHolder}>
               <div className={classes.nameRatingContainer}>
-                <h1 className={classes.restaurantName}>{data.result.name}</h1>
+                <h1 className={classes.restaurantName}>
+                  {props.resaurant.name}
+                </h1>
                 {/* Rating information */}
                 <div className={classes.ratingContainer}>
-                  <Rating rating={data.result.rating} />
+                  <Rating rating={props.resaurant.rating} />
                   <div className={classes.totalRatingContainer}>
                     <div className={classes.totalRating}>
-                      {data.result.user_ratings_total}
+                      {props.resaurant.user_ratings_total}
                     </div>
                     <div className={classes.totalRatingTitle}>
                       Users Reviews
@@ -45,7 +45,7 @@ const Section2 = (props: Props) => {
               {/* Services type and address*/}
               <section className={classes.servicesAndAdressContainer}>
                 <div className={classes.serviceTypes}>
-                  {data.result.types.map((type, index) => {
+                  {props.resaurant.types.map((type, index) => {
                     // Split the string by underscores
                     const words = type.split("_"); // ["meal", "takeaway"]
 
@@ -56,35 +56,34 @@ const Section2 = (props: Props) => {
                     const result = capitalizedWords.join(" "); // "Meal Takeaway"
                     return (
                       <span key={index}>
-                        <a
-                          href="https://www.zomato.com/bangalore/restaurants/north-indian/"
+                        <div
                           className={classes.type}
                         >
                           {result}
-                        </a>
-                        {index === data.result.types.length - 1 ? null : (
+                        </div>
+                        {index === props.resaurant.types.length - 1 ? null : (
                           <span>, </span>
                         )}
                       </span>
                     );
                   })}
                 </div>
-                <a href={data.result.url} className={classes.address}>
-                  {data.result.vicinity}
+                <a href={props.resaurant.url} className={classes.address}>
+                  {props.resaurant.vicinity}
                 </a>
               </section>
               {/* Opening hours information */}
               <section className={classes.restaurantHours}>
                 <section className={classes.openingHours}>
                   <span className={classes.isOpen}>
-                    {data.result.current_opening_hours.open_now
+                    {props.resaurant.current_opening_hours.open_now
                       ? "Open"
                       : "Close"}
                   </span>
                   <span className={classes.currentOpeningHours}>
                     <MatchingDaySpan
                       weekdayText={
-                        data.result.current_opening_hours.weekday_text
+                        props.resaurant.current_opening_hours.weekday_text
                       }
                     />
                   </span>
@@ -92,12 +91,16 @@ const Section2 = (props: Props) => {
               </section>
               {/* Services Provided */}
               <section className={classes.servicesProvided}>
-                {data.result.reservable ? <EventSeatOutlinedIcon /> : ``}
-                {data.result.serves_beer ? <SportsBarOutlinedIcon /> : ``}
-                {data.result.serves_dinner ? <DinnerDiningOutlinedIcon /> : ``}
-                {data.result.serves_wine ? <WineBarOutlinedIcon /> : ``}
-                {data.result.delivery ? <FlatwareOutlinedIcon /> : ``}
-                {data.result.dine_in ? <TakeoutDiningOutlinedIcon /> : ``}
+                {props.resaurant.reservable ? <EventSeatOutlinedIcon /> : ``}
+                {props.resaurant.serves_beer ? <SportsBarOutlinedIcon /> : ``}
+                {props.resaurant.serves_dinner ? (
+                  <DinnerDiningOutlinedIcon />
+                ) : (
+                  ``
+                )}
+                {props.resaurant.serves_wine ? <WineBarOutlinedIcon /> : ``}
+                {props.resaurant.delivery ? <FlatwareOutlinedIcon /> : ``}
+                {props.resaurant.dine_in ? <TakeoutDiningOutlinedIcon /> : ``}
               </section>
             </div>
           </div>
@@ -106,12 +109,10 @@ const Section2 = (props: Props) => {
       {/* Actions */}
       <div className={classes.actions}>
         <section className={classes.actionHolder}>
-          <Direction url={data.result.url} />
-          <Share/>
+          <Direction url={props.resaurant.url} />
+          <Share />
         </section>
       </div>
     </section>
   );
 };
-
-export default Section2;

@@ -12,23 +12,13 @@ function Section3({}: Props) {
           <section role="tablist" className={classes.options}>
             <div className={classes.option} tabIndex={0} role="tab">
               <h2 className={classes.active} tabIndex={-1}>
-                <a
-                  href="https://www.zomato.com/bangalore/ironhill-bengaluru-marathahalli-bangalore/reviews"
-                  className={classes.linkActive}
-                >
-                  Reviews
-                </a>
+                <div className={classes.linkActive}>Reviews</div>
               </h2>
               <hr className={classes.underline} />
             </div>
             <div className={classes.option} tabIndex={0} role="tab">
               <h2 className={classes.inactive} tabIndex={-1}>
-                <a
-                  href="https://www.zomato.com/bangalore/ironhill-bengaluru-marathahalli-bangalore/reviews"
-                  className={classes.linkInaActive}
-                >
-                  Photos
-                </a>
+                <div className={classes.linkInaActive}>Photos</div>
               </h2>
               <hr className={classes.underline} />
             </div>

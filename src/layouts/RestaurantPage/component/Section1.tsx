@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useSection1Styles } from "./Section1Module";
+import Restaurant from "../../../models/Restaurant/Restaurant";
+import img1 from "../../../Images/PublicImages/restaurant_1.jpg";
+import img2 from "../../../Images/PublicImages/restaurant_2.png";
+import img3 from "../../../Images/PublicImages/restaurant_3.png";
+import img4 from "../../../Images/PublicImages/restaurant_4.png";
 
-type Props = {};
 
-const Section1 = (props: Props) => {
+export const Section1: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection1Styles();
   const [loaded, setLoaded] = useState(false);
 
@@ -18,7 +22,7 @@ const Section1 = (props: Props) => {
           <div className={classes.imageHolder}>
             <img
               alt="abcd"
-              src="https://b.zmtcdn.com/data/pictures/7/19672427/04f6dcb80cd2db91826d1fb49cf10820.jpg?output-format=webp&amp;fit=around|771.75:416.25&amp;crop=771.75:416.25;*,*"
+              src={img1}
               loading="lazy"
               onLoad={handleImageLoaded}
               className={classes.image}
@@ -33,7 +37,7 @@ const Section1 = (props: Props) => {
             <div className={classes.imageHolder}>
               <img
                 alt="abcd"
-                src="https://b.zmtcdn.com/data/pictures/7/19672427/04f6dcb80cd2db91826d1fb49cf10820.jpg?output-format=webp&amp;fit=around|771.75:416.25&amp;crop=771.75:416.25;*,*"
+                src={img2}
                 loading="lazy"
                 className={classes.image}
               ></img>
@@ -43,7 +47,7 @@ const Section1 = (props: Props) => {
             <div className={classes.imageHolder}>
               <img
                 alt="abcd"
-                src="https://b.zmtcdn.com/data/pictures/7/19672427/04f6dcb80cd2db91826d1fb49cf10820.jpg?output-format=webp&amp;fit=around|771.75:416.25&amp;crop=771.75:416.25;*,*"
+                src={img3}
                 loading="lazy"
                 className={classes.image}
               ></img>
@@ -55,7 +59,7 @@ const Section1 = (props: Props) => {
             <div className={classes.imageHolder}>
               <img
                 alt="abcd"
-                src="https://b.zmtcdn.com/data/pictures/7/19672427/04f6dcb80cd2db91826d1fb49cf10820.jpg?output-format=webp&amp;fit=around|771.75:416.25&amp;crop=771.75:416.25;*,*"
+                src={img4}
                 loading="lazy"
                 className={classes.image}
               ></img>
