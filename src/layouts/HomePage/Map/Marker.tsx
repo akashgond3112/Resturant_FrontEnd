@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Paper, Rating, Typography, useMediaQuery } from "@mui/material";
+import { Paper, Rating, Typography } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { useMapStyles } from "./MapModule";
 

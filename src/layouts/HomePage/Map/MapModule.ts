@@ -21,6 +21,9 @@ export const useMapStyles = makeStyles(() =>
     },
     pointer: {
       cursor: "pointer",
+      background: "no-repeat center/cover",
+      height: "72px",
+      minWidth: "128px",
     },
   })
 );

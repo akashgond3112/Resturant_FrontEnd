@@ -15,7 +15,11 @@ export const Rating: React.FC<{ rating: number }> = (props) => {
       <div className={classes["rating-container"]}>
         <div
           className={classes["rating-main"]}
-          style={{ backgroundColor: ratingColor }}
+          style={{
+            backgroundColor: ratingColor,
+            height: "2.0rem",
+            width: "2.6rem",
+          }}
         >
           <div className={classes["content-holder"]}>
             <div className={classes["rating-content"]}>

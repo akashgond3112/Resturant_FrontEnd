@@ -2,6 +2,15 @@ import React from "react";
 import { useSection2Styles } from "./Section2Module";
 import { Rating } from "../../ResturantListPage/Rating";
 import data from "../../../data/restaurant.json";
+import MatchingDaySpan from "./MatchingDaySpan";
+import EventSeatOutlinedIcon from "@mui/icons-material/EventSeatOutlined";
+import SportsBarOutlinedIcon from "@mui/icons-material/SportsBarOutlined";
+import DinnerDiningOutlinedIcon from "@mui/icons-material/DinnerDiningOutlined";
+import WineBarOutlinedIcon from "@mui/icons-material/WineBarOutlined";
+import TakeoutDiningOutlinedIcon from "@mui/icons-material/TakeoutDiningOutlined";
+import FlatwareOutlinedIcon from "@mui/icons-material/FlatwareOutlined";
+import Direction from "./Direction/Direction";
+import Share from "./Share/Share";
 
 type Props = {};
 
@@ -60,13 +69,47 @@ const Section2 = (props: Props) => {
                     );
                   })}
                 </div>
+                <a href={data.result.url} className={classes.address}>
+                  {data.result.vicinity}
+                </a>
               </section>
               {/* Opening hours information */}
-              <section></section>
+              <section className={classes.restaurantHours}>
+                <section className={classes.openingHours}>
+                  <span className={classes.isOpen}>
+                    {data.result.current_opening_hours.open_now
+                      ? "Open"
+                      : "Close"}
+                  </span>
+                  <span className={classes.currentOpeningHours}>
+                    <MatchingDaySpan
+                      weekdayText={
+                        data.result.current_opening_hours.weekday_text
+                      }
+                    />
+                  </span>
+                </section>
+              </section>
+              {/* Services Provided */}
+              <section className={classes.servicesProvided}>
+                {data.result.reservable ? <EventSeatOutlinedIcon /> : ``}
+                {data.result.serves_beer ? <SportsBarOutlinedIcon /> : ``}
+                {data.result.serves_dinner ? <DinnerDiningOutlinedIcon /> : ``}
+                {data.result.serves_wine ? <WineBarOutlinedIcon /> : ``}
+                {data.result.delivery ? <FlatwareOutlinedIcon /> : ``}
+                {data.result.dine_in ? <TakeoutDiningOutlinedIcon /> : ``}
+              </section>
             </div>
           </div>
         </section>
       </section>
+      {/* Actions */}
+      <div className={classes.actions}>
+        <section className={classes.actionHolder}>
+          <Direction url={data.result.url} />
+          <Share/>
+        </section>
+      </div>
     </section>
   );
 };
