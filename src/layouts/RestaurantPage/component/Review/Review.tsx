@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import Restaurant from "../../../../models/Restaurant/Restaurant";
 import { useReviewStyles } from "./Reviewmodule";
+import avatar from "../../../../Images/PublicImages/akash.jpg";
 
-export const Review: React.FC<{ resaurant: Restaurant }> = (props) => {
+export const Review: React.FC<{
+  addReviewButtonClicked: boolean;
+  setAddReviewButtonClicked: any;
+}> = (props) => {
   const classes = useReviewStyles();
-  const [showReviewModal, setshowReviewModal] = useState(false);
+  // const [showReviewModal, setshowReviewModal] = useState(false);
   const [diningOptionSelected, setDiningOptionSelected] = useState(true);
   const [deliveryOptionSelected, setDeliveryOptionSelected] = useState(false);
+  const [writeReviewBoxSelected, setWriteReviewBoxSelected] = useState(false);
+
+  // if (props.addReviewButtonClicked) {
+  //   setshowReviewModal(true);
+  // } else {
+  //   setshowReviewModal(false);
+  // }
 
   const handleDelieveryOption = () => {
     setDeliveryOptionSelected(true);
@@ -17,30 +28,38 @@ export const Review: React.FC<{ resaurant: Restaurant }> = (props) => {
     setDiningOptionSelected(true);
     setDeliveryOptionSelected(false);
   };
+
+  const handleWriteReviewBoxActive = () => {
+    setWriteReviewBoxSelected(!writeReviewBoxSelected);
+  };
+
   return (
     <div className={classes.main}>
       <div
         className={
-          showReviewModal
-            ? `${classes.modalHolderHidden}`
-            : `${classes.modalHolderVisible}`
+          props.addReviewButtonClicked
+            ? `${classes.modalHolderVisible}`
+            : `${classes.modalHolderHidden}`
         }
-        aria-hidden={showReviewModal ? `true` : `false`}
+        aria-hidden={props.addReviewButtonClicked ? `false` : `true`}
         role="dialog"
       >
         <div
           className={
-            showReviewModal
-              ? `${classes.modalBackgroundHidden}`
-              : `${classes.modalBackgroundVisible}`
+            props.addReviewButtonClicked
+              ? `${classes.modalBackgroundVisible}`
+              : `${classes.modalBackgroundHidden}`
           }
           tabIndex={-1}
+          onClick={() =>
+            props.setAddReviewButtonClicked(!props.addReviewButtonClicked)
+          }
         ></div>
         <div
           className={
-            showReviewModal
-              ? `${classes.modalMainHidden}`
-              : `${classes.modalMainVisible}`
+            props.addReviewButtonClicked
+              ? `${classes.modalMainVisible}`
+              : `${classes.modalMainHidden}`
           }
           datatype="default"
           tabIndex={0}
@@ -53,6 +72,9 @@ export const Review: React.FC<{ resaurant: Restaurant }> = (props) => {
               color="#1C1C1C"
               aria-label="close Modal"
               tabIndex={0}
+              onClick={() =>
+                props.setAddReviewButtonClicked(!props.addReviewButtonClicked)
+              }
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,6 +98,7 @@ export const Review: React.FC<{ resaurant: Restaurant }> = (props) => {
               <h6 className={classes.addReviewRateExperienceContent}>
                 Rate your experience for
               </h6>
+              {/* Dining And Delievery Option start */}
               <div className={classes.dineAndDeliveryOptionMain}>
                 <section className={classes.dineAndDeliveryOptionHolder}>
                   {/* Dining Start */}
@@ -173,6 +196,66 @@ export const Review: React.FC<{ resaurant: Restaurant }> = (props) => {
                   {/* Delivery End */}
                 </section>
               </div>
+              {/* Dining And Delievery Option end */}
+              {/* Writing Review section start */}
+              <section className={classes.writeReviewContainer}>
+                <section className={classes.writeReviewMain}>
+                  <div
+                    className={`${classes.imageHolderPrimary}  ${classes.imageHolderSecondary}`}
+                  >
+                    <div className={classes.imageMain}></div>
+                    <img
+                      alt="abc"
+                      src={avatar}
+                      loading="lazy"
+                      className={classes.image}
+                    ></img>
+                  </div>
+                  <section className={classes.writeReviewHolder}>
+                    <section className={classes.writeReviewBoxMain}>
+                      <textarea
+                        onClick={handleWriteReviewBoxActive}
+                        tabIndex={0}
+                        className={
+                          writeReviewBoxSelected
+                            ? `${classes.writeReviewBoxAreaActive}`
+                            : `${classes.writeReviewBoxAreaInactive}`
+                        }
+                        style={{ height: "70px", width: "100%" }}
+                      ></textarea>
+                      <label
+                        className={
+                          writeReviewBoxSelected
+                            ? `${classes.writeReviewBoxLabelActive}`
+                            : `${classes.writeReviewBoxLabelInactive}`
+                        }
+                      >
+                        Write your review
+                      </label>
+                    </section>
+                  </section>
+                </section>
+              </section>
+              {/* Writing Review section end */}
+              {/* Submit Review section start */}
+              <section className={classes.submitReviewContainer}>
+                <button
+                  // role="presentation"
+                  tabIndex={0}
+                  aria-disabled="false"
+                  className={classes.submitReviewMain}
+                >
+                  <span
+                    tabIndex={-1}
+                    className={classes.submitReviewSpanPrimary}
+                  >
+                    <span className={classes.submitReviewSpanSecondary}>
+                      Submit Review
+                    </span>
+                  </span>
+                </button>
+              </section>
+              {/* Submit Review section end */}
             </section>
           </section>
           {/* Section 2 end */}

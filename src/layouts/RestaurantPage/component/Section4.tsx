@@ -197,7 +197,7 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
           </div>
         </div>
       </section>
-      <Review resaurant={props.resaurant} />
+      {/* <Review addReviewButtonClicked={true}/> */}
     </>
   );
 };
