@@ -11,11 +11,10 @@ import FlatwareOutlinedIcon from "@mui/icons-material/FlatwareOutlined";
 import Direction from "./Direction/Direction";
 import Share from "./Share/Share";
 import Restaurant from "../../../models/Restaurant/Restaurant";
-
+import Tooltip from "@mui/material/Tooltip";
 
 export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection2Styles();
-
 
   return (
     /* Information holder of the restaurant */
@@ -56,11 +55,7 @@ export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
                     const result = capitalizedWords.join(" "); // "Meal Takeaway"
                     return (
                       <span key={index}>
-                        <div
-                          className={classes.type}
-                        >
-                          {result}
-                        </div>
+                        <div className={classes.type}>{result}</div>
                         {index === props.resaurant.types.length - 1 ? null : (
                           <span>, </span>
                         )}
@@ -91,16 +86,60 @@ export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
               </section>
               {/* Services Provided */}
               <section className={classes.servicesProvided}>
-                {props.resaurant.reservable ? <EventSeatOutlinedIcon /> : ``}
-                {props.resaurant.serves_beer ? <SportsBarOutlinedIcon /> : ``}
-                {props.resaurant.serves_dinner ? (
-                  <DinnerDiningOutlinedIcon />
+                {props.resaurant.reservable ? (
+                  <Tooltip title="Reservesation" placement="top">
+                    <EventSeatOutlinedIcon
+                      sx={{ "&:hover": { color: "rgb(239 79 95)" } }}
+                    />
+                  </Tooltip>
                 ) : (
                   ``
                 )}
-                {props.resaurant.serves_wine ? <WineBarOutlinedIcon /> : ``}
-                {props.resaurant.delivery ? <FlatwareOutlinedIcon /> : ``}
-                {props.resaurant.dine_in ? <TakeoutDiningOutlinedIcon /> : ``}
+                {props.resaurant.serves_beer ? (
+                  <Tooltip title="Serve beer" placement="top">
+                    <SportsBarOutlinedIcon
+                      sx={{ "&:hover": { color: "rgb(239 79 95)" } }}
+                    />
+                  </Tooltip>
+                ) : (
+                  ``
+                )}
+                {props.resaurant.serves_dinner ? (
+                  <Tooltip title="Serve Dinner" placement="top">
+                    <DinnerDiningOutlinedIcon
+                      sx={{ "&:hover": { color: "rgb(239 79 95)" } }}
+                    />
+                  </Tooltip>
+                ) : (
+                  ``
+                )}
+                {props.resaurant.serves_wine ? (
+                  <Tooltip title="Serve Wine" placement="top">
+                    <WineBarOutlinedIcon
+                      sx={{ "&:hover": { color: "rgb(239 79 95)" } }}
+                    />
+                  </Tooltip>
+                ) : (
+                  ``
+                )}
+                {props.resaurant.delivery ? (
+                  <Tooltip title="Delivery Available" placement="top">
+                    <FlatwareOutlinedIcon
+                      sx={{ "&:hover": { color: "rgb(239 79 95)" } }}
+                    />
+                  </Tooltip>
+                ) : (
+                  ``
+                )}
+                {props.resaurant.dine_in ? (
+                  <Tooltip title="Dine In" placement="top">
+                    <TakeoutDiningOutlinedIcon
+                      sx={{ "&:hover": { color: "rgb(239 79 95)" } }}
+                    />
+                  </Tooltip>
+                ) : (
+                  ``
+                )}
               </section>
             </div>
           </div>

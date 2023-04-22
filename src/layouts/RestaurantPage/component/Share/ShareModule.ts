@@ -15,6 +15,9 @@ export const useShareStyles = makeStyles(() =>
       marginRight: "1rem",
       width: "unset",
       position: "relative",
+      "&:hover": {
+        backgroundColor: "rgb(248, 248, 248)",
+      },
     },
     shareInformation: {
       display: "flex",

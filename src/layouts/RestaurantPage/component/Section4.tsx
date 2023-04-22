@@ -1,10 +1,61 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSection4Styles } from "./Section4Module";
 import Restaurant from "../../../models/Restaurant/Restaurant";
-import { Review } from "./Review/Review";
+import { fetchSentiment } from "../../../api/fetchSentiment";
 
 export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection4Styles();
+
+  const sentimentEngineEnabled =
+    process.env.REACT_APP_BASE_USE_SENTIMENT_ENGINE;
+
+  const [writeCommentBoxSelected, setWriteCommentBoxSelected] = useState(false);
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [commentValue, setCommentValue] = useState("");
+  const [sentimentValue, setSentimentValue] = useState("");
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  /* Handle an event when user is writing something and clicked 
+  outsied the text area to remove focus from text box. */
+  const handleClickOutsideBox = (event: MouseEvent) => {
+    if (boxRef.current && !boxRef.current.contains(event.target as Node)) {
+      setWriteCommentBoxSelected(false);
+    }
+  };
+
+  /* This take care of if there is any change in dom and call the method defined */
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutsideBox);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutsideBox);
+    };
+  }, []);
+
+  /* Handle when user press enter button to add the comment. */
+  const onAddCommentEnterPress = (e: {
+    key: string;
+    keyCode: number;
+    shiftKey: boolean;
+    preventDefault: () => void;
+  }) => {
+    if (e.keyCode === 13 && e.shiftKey === false) {
+      e.preventDefault();
+      if (e.key === "Enter") {
+        console.log(commentValue);
+        setWriteCommentBoxSelected(false);
+        setCommentValue("");
+      }
+    }
+  };
+
+  /* Handle if there is any change on the current comment text area */
+  const handleCommentChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setCommentValue(event.target.value);
+    console.log(commentValue);
+  };
 
   let noOfComments = 0;
   let noOfVotes = 0;
@@ -12,12 +63,23 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
 
   return (
     <>
-      <section className={classes.main}>
+      <section
+        className={classes.main}
+        ref={boxRef}
+        onClick={() => setWriteCommentBoxSelected(!writeCommentBoxSelected)}
+      >
         <div className={classes.container}>
           <div className={classes.subContainer}>
             <section className={classes.reviewSectionMain}>
               <h2 className={classes.restaurantName}>{props.resaurant.name}</h2>
               {props.resaurant.reviews.map((review, index) => {
+                if (sentimentEngineEnabled) {
+                  fetchSentiment(review.text).then((data) => {
+                    setSentimentValue(data.sentiment);
+                    console.log(sentimentValue);
+                  });
+                }
+
                 return (
                   <div className={classes.reviewContainer} key={index}>
                     {/* User Information Start*/}
@@ -32,7 +94,7 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
                           <div className={classes.imageHolder}>
                             <div className={classes.imagePrimary}></div>
                             <img
-                              alt="abc"
+                              alt="user"
                               src={review.profile_photo_url}
                               loading="lazy"
                               className={classes.image}
@@ -120,6 +182,14 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
                       >
                         {review.relative_time_description}
                       </p>
+                      <p
+                        className={`${classes.time}  ${classes.timeStamp}`}
+                        color="#9C9C9C"
+                      >
+                        {sentimentValue === "Positive" ? "😃" : ""}
+                        {sentimentValue === "Negative" ? "😞" : ""}
+                        {sentimentValue === "Neutral" ? "😐" : ""}
+                      </p>
                     </div>
                     {/* Rating section end  */}
                     {/* Customer review start */}
@@ -139,6 +209,7 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="#828282"
+                            // fill="#EF4F5F"
                             width="16"
                             height="16"
                             viewBox="0 0 20 20"
@@ -152,7 +223,10 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
                         </i>
                         <span className={classes.actionContent}>Helpful</span>
                       </div>
-                      <div className={`${classes.commentMain}`}>
+                      <div
+                        className={`${classes.commentMain}`}
+                        onClick={() => setShowCommentBox(!showCommentBox)}
+                      >
                         <i className={classes.symbolPrimary} color="#828282">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +263,134 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
                         <span className={classes.actionContent}>Share</span>
                       </div>
                     </section>
-                    {/* Review Aaction end */}
+                    {/* Review Action end */}
+                    {/* Comment secton start */}
+                    {showCommentBox && (
+                      <>
+                        {/*Add comment start */}
+                        <div className={classes.commentImageMain}>
+                          <div className={classes.imageContainer}>
+                            <a
+                              href={review.profile_photo_url}
+                              className={classes.userProfileLink}
+                            >
+                              <div className={classes.imageHolder}>
+                                <div className={classes.imagePrimary}></div>
+                                <img
+                                  alt="user"
+                                  src={review.profile_photo_url}
+                                  loading="lazy"
+                                  className={classes.image}
+                                ></img>
+                              </div>
+                            </a>
+                          </div>
+                          <div className={classes.writeCommentContainer}>
+                            <section
+                              className={classes.writeCommentBoxMain}
+                              defaultValue={commentValue}
+                            >
+                              <textarea
+                                onClick={() =>
+                                  setWriteCommentBoxSelected(
+                                    !writeCommentBoxSelected
+                                  )
+                                }
+                                onKeyDown={onAddCommentEnterPress}
+                                onChange={handleCommentChange}
+                                value={commentValue}
+                                tabIndex={0}
+                                className={
+                                  writeCommentBoxSelected
+                                    ? `${classes.writeCommentBoxAreaActive}`
+                                    : `${classes.writeCommentBoxAreaInactive}`
+                                }
+                                style={{ height: "70px", width: "100%" }}
+                              ></textarea>
+                              <label
+                                className={
+                                  writeCommentBoxSelected
+                                    ? `${classes.writeCommentBoxLabelActive}`
+                                    : `${classes.writeCommentBoxLabelInactive}`
+                                }
+                                defaultValue={commentValue}
+                              >
+                                Write your Comment
+                              </label>
+                            </section>
+                          </div>
+                        </div>
+                        {/*Add comment end */}
+                        {/* List of Comment Start */}
+                        <div className={classes.lsitOfCommentMain}>
+                          <div className={classes.listOfCommentImageMain}>
+                            <div className={classes.imageContainer}>
+                              <a
+                                href={review.profile_photo_url}
+                                className={classes.userProfileLink}
+                              >
+                                <div className={classes.imageHolder}>
+                                  <div className={classes.imagePrimary}></div>
+                                  <img
+                                    alt="user"
+                                    src={review.profile_photo_url}
+                                    loading="lazy"
+                                    className={classes.image}
+                                  ></img>
+                                </div>
+                              </a>
+                            </div>
+                            <div className={classes.commentContainer}>
+                              {/* User Profile Detail Start*/}
+                              <div className="userProfileDetailsInComment">
+                                <a
+                                  href={review.author_url}
+                                  rel="nofollow noreferrer noopener"
+                                  className={classes.userProfileLink}
+                                >
+                                  <p className={classes.userName}>
+                                    {review.author_name}
+                                  </p>
+                                </a>
+                              </div>
+                              {/* User Profile Detail End*/}
+                              {/* Comment Content And action start */}
+                              <div className="commentContentAndActionContainer">
+                                <div className={classes.commentContentMain}>
+                                  Its a really good Review!
+                                </div>
+                                <div
+                                  className={
+                                    classes.commentContentActionContainer
+                                  }
+                                >
+                                  just now
+                                  <span
+                                    className={
+                                      classes.commentContentActionHolder
+                                    }
+                                  >
+                                    <span
+                                      className={classes.commentContentAction}
+                                    >
+                                      Edit
+                                    </span>
+                                    <span
+                                      className={classes.commentContentAction}
+                                    >
+                                      Delete
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                              {/* Comment Content And action end */}
+                            </div>
+                          </div>
+                        </div>
+                        {/* List of Comment End*/}
+                      </>
+                    )}
+                    {/* Comment secton end */}
                   </div>
                 );
               })}

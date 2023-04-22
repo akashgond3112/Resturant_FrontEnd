@@ -49,6 +49,7 @@ export const useSection4Styles = makeStyles(() =>
       width: "4.4rem",
       height: "4.4rem",
       overflow: "hidden",
+      borderRadius: "hidden",
     },
     imagePrimary: {
       width: "100%",
@@ -278,7 +279,7 @@ export const useSection4Styles = makeStyles(() =>
       display: "flex",
       justifyContent: "flex-start",
       borderBottom: "2px solid rgb(113, 113, 113)",
-      marginBottom:"2rem"
+      marginBottom: "2rem",
     },
     helpfulAndShareMain: {
       cursor: "pointer",
@@ -316,6 +317,108 @@ export const useSection4Styles = makeStyles(() =>
       fontSize: "1.2rem",
     },
     /* Review Action end */
+    /* Comment section start*/
+    commentImageMain: {
+      display: "flex",
+      margin: "2rem 0px",
+      borderBottom: "2px solid rgb(113, 113, 113)",
+    },
+    imageContainer: {
+      width: "4.4rem",
+      height: "4.4rem",
+      marginRight: "1rem",
+      flexShrink: "0",
+    },
+    writeCommentContainer: {
+      flexGrow: 1,
+    },
+    writeCommentBoxMain: {
+      position: "relative",
+      width: "auto",
+    },
+    writeCommentBoxAreaInactive: {
+      padding: "1.3rem 1.2rem",
+      background: "rgb(255, 255, 255)",
+      border: "0.1rem solid rgb(207, 207, 207)",
+      fontSize: "18px",
+      width: "100%",
+      outline: "none",
+      boxSizing: "border-box",
+      borderRadius: "0.6rem",
+      resize: "none",
+      color: "rgb(28, 28, 28)",
+      overflow: "hidden",
+    },
+    writeCommentBoxAreaActive: {
+      padding: "1.25rem 1.15rem",
+      background: "rgb(255, 255, 255)",
+      border: "0.15rem solid rgb(17, 145, 153)",
+      fontSize: "18px",
+      width: "100%",
+      outline: "none",
+      boxSizing: "border-box",
+      borderRadius: "0.6rem",
+      resize: "none",
+      color: "rgb(28, 28, 28)",
+      overflow: "hidden",
+    },
+    writeCommentBoxLabelInactive: {
+      position: "absolute",
+      pointerEvents: "none",
+      transition: "all 0.2s ease 0s",
+      color: "rgb(181, 181, 181)",
+      top: "13px",
+      left: "14px",
+      fontSize: "18px",
+      background: "rgb(255, 255, 255)",
+      padding: "0px",
+    },
+    writeCommentBoxLabelActive: {
+      position: "absolute",
+      pointerEvents: "none",
+      transition: "all 0.2s ease 0s",
+      color: "rgb(17, 145, 153)",
+      top: "-5px",
+      left: "25px",
+      fontSize: "10px",
+      background: "rgb(255, 255, 255)",
+      padding: "0px 5px",
+    },
+    /* Writing Review section end */
+    /* List of Comment Start */
+    lsitOfCommentMain: {
+      paddingBottom: "0.5rem",
+      borderBottom: "2px solid rgb(232, 232, 232)",
+    },
+    listOfCommentImageMain: {
+      display: "flex",
+      margin: "2rem 0px",
+    },
+    commentContainer: {
+      flexGrow: 1,
+    },
+    commentContentMain: {
+      fontSize: "1.2rem",
+      color: "rgb(54, 54, 54)",
+      marginBottom: "  0.8rem",
+    },
+    commentContentActionContainer: {
+      fontSize: "0.8rem",
+      color: "rgb(156, 156, 156)",
+      display: "flex",
+    },
+    commentContentActionHolder: {
+      display: "flex",
+    },
+    commentContentAction: {
+      margin: "0px 0.5rem",
+      color: "rgb(156, 156, 156)",
+      fontSize: "0.9rem",
+      fontWeight: "500",
+      cursor: "pointer",
+    },
+    /* List of Comment End */
+    /* Comment section end*/
     "@media (min-width: 769px)": {
       //   main: {
       //     width: "calc(100% + 1rem)",

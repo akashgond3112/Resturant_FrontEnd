@@ -14,6 +14,9 @@ export const useDirectionStyles = makeStyles(() =>
       justifyContent: "center",
       cursor: "pointer",
       marginRight: "1rem",
+      "&:hover": {
+        backgroundColor: "rgb(248, 248, 248)",
+      },
     },
     directionInformation: {
       display: "flex",

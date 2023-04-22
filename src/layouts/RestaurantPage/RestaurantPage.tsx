@@ -48,8 +48,6 @@ const RestaurantPage = (props: Props) => {
     website: "",
   };
 
-  console.log(loadedRestaurant);
-
   const classes = useRestaurantPageStyles();
   return (
     <div className={classes.main}>

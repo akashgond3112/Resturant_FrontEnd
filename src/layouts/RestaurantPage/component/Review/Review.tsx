@@ -13,12 +13,6 @@ export const Review: React.FC<{
   const [deliveryOptionSelected, setDeliveryOptionSelected] = useState(false);
   const [writeReviewBoxSelected, setWriteReviewBoxSelected] = useState(false);
 
-  // if (props.addReviewButtonClicked) {
-  //   setshowReviewModal(true);
-  // } else {
-  //   setshowReviewModal(false);
-  // }
-
   const handleDelieveryOption = () => {
     setDeliveryOptionSelected(true);
     setDiningOptionSelected(false);
