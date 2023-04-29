@@ -1,13 +1,15 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { useFetchAllRestaurantsNearBy } from "./hooks/useFetchAllRestaurantsNearBy";
+import { useFetchAllRestaurantsNearBy } from "../../hooks/useFetchAllRestaurantsNearBy";
 import { SpinnerLoading } from "../utilities/Spinner";
 import classes from "./ResturantListPage.module.css";
-import { ReturnResturant } from "../HomePage/Component/ReturnResturant";
 import { EndOfResult } from "../utilities/EndOfResult";
+import { Carousel } from "./Carousel";
+import { ReturnResturant } from "./ReturnResturant";
+import { NavLink } from "react-router-dom";
 
-export const ResturantListPage = () => {
-  const [lat, setLat] = useState(0);
-  const [lng, setLong] = useState(0);
+export const ResturantListPage: React.FC<{ setRestaurants: any }> = (props) => {
+  const [lat, setLat] = useState<number>(0);
+  const [lng, setLong] = useState<number>(0);
   const [nextPageToken, setGetNextPageToken] = useState("");
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export const ResturantListPage = () => {
       setLat(latitude);
       setLong(longitude);
     });
-  }, [lat, lng]);
+  }, []);
 
   const {
     resturants,
@@ -52,30 +54,52 @@ export const ResturantListPage = () => {
     );
   }
 
-
   return (
     <>
-      <div className={classes["container"]}>
-        {resturants.map((resaurant, index) => {
-          if (resturants.length === index + 1) {
-            return (
-              <div
-                ref={lastRestaurantElementRef}
-                key={resaurant.place_id}
-                className="mt-5"
-              >
-                <ReturnResturant resaurant={resaurant} />
-              </div>
-            );
-          } else {
-            return (
-              <div key={resaurant.place_id} className="mt-5">
-                <ReturnResturant resaurant={resaurant} />
-              </div>
-            );
-          }
-        })}
-      </div>
+      {resturants.length > 0 && (
+        <>
+          <Carousel restaurants={resturants} />
+          <div className={classes["container"]}>
+            {resturants.map((restaurant, index) => {
+              if (resturants.length === index + 1) {
+                return (
+                  <NavLink
+                    ref={lastRestaurantElementRef}
+                    key={restaurant.place_id}
+                    className="mt-5"
+                    to={`/restaurant/${restaurant.place_id}`}
+                    onClick={() => {
+                      localStorage.setItem(
+                        restaurant.place_id,
+                        JSON.stringify(restaurant)
+                      );
+                    }}
+                  >
+                    <ReturnResturant restaurant={restaurant} />
+                  </NavLink>
+                );
+              } else {
+                return (
+                  <NavLink
+                    key={restaurant.place_id}
+                    className="mt-5"
+                    to={`/restaurant/${restaurant.place_id}`}
+                    onClick={() => {
+                      localStorage.setItem(
+                        restaurant.place_id,
+                        JSON.stringify(restaurant)
+                      );
+                    }}
+                  >
+                    <ReturnResturant restaurant={restaurant} />
+                  </NavLink>
+                );
+              }
+            })}
+          </div>
+        </>
+      )}
+
       {isLoading ? (
         <div>
           <SpinnerLoading />
