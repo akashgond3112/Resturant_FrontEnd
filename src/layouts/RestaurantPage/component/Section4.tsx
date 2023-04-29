@@ -73,7 +73,7 @@ export const Section4: React.FC<{ resaurant: Restaurant }> = (props) => {
             <section className={classes.reviewSectionMain}>
               <h2 className={classes.restaurantName}>{props.resaurant.name}</h2>
               {props.resaurant.reviews.map((review, index) => {
-                if (sentimentEngineEnabled) {
+                if (sentimentEngineEnabled === "true") {
                   fetchSentiment(review.text).then((data) => {
                     setSentimentValue(data.sentiment);
                     console.log(sentimentValue);

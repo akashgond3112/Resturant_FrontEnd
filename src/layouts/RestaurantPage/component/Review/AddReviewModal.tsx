@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Restaurant from "../../../../models/Restaurant/Restaurant";
-import { useReviewStyles } from "./Reviewmodule";
+import { useReviewStyles } from "./AddReviewModalmodule";
 import avatar from "../../../../Images/PublicImages/akash.jpg";
 
 export const Review: React.FC<{
@@ -12,6 +12,7 @@ export const Review: React.FC<{
   const [diningOptionSelected, setDiningOptionSelected] = useState(true);
   const [deliveryOptionSelected, setDeliveryOptionSelected] = useState(false);
   const [writeReviewBoxSelected, setWriteReviewBoxSelected] = useState(false);
+  const [reviewValue, setReviewValue] = useState("");
 
   const handleDelieveryOption = () => {
     setDeliveryOptionSelected(true);
@@ -23,8 +24,32 @@ export const Review: React.FC<{
     setDeliveryOptionSelected(false);
   };
 
-  const handleWriteReviewBoxActive = () => {
-    setWriteReviewBoxSelected(!writeReviewBoxSelected);
+  
+
+  /* Handle when user press enter button to add the comment. */
+  const onAddReviewEnterPress = (e: {
+    key: string;
+    keyCode: number;
+    shiftKey: boolean;
+    preventDefault: () => void;
+  }) => {
+    if (e.keyCode === 13 && e.shiftKey === false) {
+      e.preventDefault();
+      if (e.key === "Enter") {
+        console.log(reviewValue);
+        setWriteReviewBoxSelected(false);
+        setReviewValue("");
+        props.setAddReviewButtonClicked(!props.addReviewButtonClicked);
+      }
+    }
+  };
+
+  /* Handle if there is any change on the current comment text area */
+  const handleReviewChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setReviewValue(event.target.value);
+    console.log(reviewValue);
   };
 
   return (
@@ -206,9 +231,14 @@ export const Review: React.FC<{
                     ></img>
                   </div>
                   <section className={classes.writeReviewHolder}>
-                    <section className={classes.writeReviewBoxMain}>
+                    <section
+                      className={classes.writeReviewBoxMain}
+                      defaultValue={reviewValue}
+                    >
                       <textarea
-                        onClick={handleWriteReviewBoxActive}
+                        onClick={() =>
+                          setWriteReviewBoxSelected(!writeReviewBoxSelected)
+                        }
                         tabIndex={0}
                         className={
                           writeReviewBoxSelected
@@ -216,6 +246,9 @@ export const Review: React.FC<{
                             : `${classes.writeReviewBoxAreaInactive}`
                         }
                         style={{ height: "70px", width: "100%" }}
+                        onKeyDown={onAddReviewEnterPress}
+                        onChange={handleReviewChange}
+                        value={reviewValue}
                       ></textarea>
                       <label
                         className={
@@ -223,6 +256,7 @@ export const Review: React.FC<{
                             ? `${classes.writeReviewBoxLabelActive}`
                             : `${classes.writeReviewBoxLabelInactive}`
                         }
+                        defaultValue={reviewValue}
                       >
                         Write your review
                       </label>
@@ -234,7 +268,6 @@ export const Review: React.FC<{
               {/* Submit Review section start */}
               <section className={classes.submitReviewContainer}>
                 <button
-                  // role="presentation"
                   tabIndex={0}
                   aria-disabled="false"
                   className={classes.submitReviewMain}

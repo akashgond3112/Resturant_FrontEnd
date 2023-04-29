@@ -94,6 +94,7 @@ export const useReviewStyles = makeStyles(() =>
       alignItems: "center",
       justifyContent: "center",
       borderRadius: "50%",
+      cursor:"pointer"
     },
     addReviewCloseButtonSecondary: {
       display: "inline-block",

@@ -24,8 +24,6 @@ export const RestaurantDetails: React.FC<{
   const classes = useRestaurantDetailsStyles();
 
   const [restaurant, setRestaurant] = useState<Restaurant>();
-  const [isLoadingBook, setisLoadingBook] = useState(true);
-  const [httpError, sethttpError] = useState(null);
 
   if (props.selected) {
     props.refProp?.current?.scrollIntoView({
@@ -85,12 +83,10 @@ export const RestaurantDetails: React.FC<{
       };
 
       setRestaurant(loadedRestaurant);
-      setisLoadingBook(false);
     };
 
     fetchBook().catch((error: any) => {
-      setisLoadingBook(false);
-      sethttpError(error.message);
+      console.log(error);
     });
   }, []);
 

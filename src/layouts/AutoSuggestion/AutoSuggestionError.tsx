@@ -1,7 +1,8 @@
 import classes from "./AutoSuggestionError.module.css"
 
 export const AutoSuggestionError = () => {
-    return (
+  return (
+    <div className={classes["main"]}>
       <div className={classes["auto_suggestion_error_holder"]}>
         <p
           color="#9C9C9C"
@@ -18,5 +19,6 @@ export const AutoSuggestionError = () => {
           We could not understand what you mean, try rephrasing the query.
         </p>
       </div>
-    );
+    </div>
+  );
 }

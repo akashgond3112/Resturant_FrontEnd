@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSection3Styles } from "./Section3Module";
-import { Review } from "./Review/Review";
+import { Review } from "./Review/AddReviewModal";
 
 export const Section3: React.FC<{}> = (props) => {
   const classes = useSection3Styles();

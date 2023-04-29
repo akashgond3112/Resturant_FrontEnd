@@ -7,9 +7,14 @@ import img3 from "../../../Images/PublicImages/restaurant_3.png";
 import img4 from "../../../Images/PublicImages/restaurant_4.png";
 
 
-export const Section1: React.FC<{ resaurant: Restaurant }> = (props) => {
+export const Section1: React.FC<{ restaurant: Restaurant }> = (props) => {
   const classes = useSection1Styles();
   const [loaded, setLoaded] = useState(false);
+
+  const img1 = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${props.restaurant.photos[0].photo_reference}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
+  const img2 = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${props.restaurant.photos[1].photo_reference}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
+  const img3 = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${props.restaurant.photos[2].photo_reference}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
+  const img4 = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${props.restaurant.photos[3].photo_reference}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
 
   const handleImageLoaded = () => {
     setLoaded(true);

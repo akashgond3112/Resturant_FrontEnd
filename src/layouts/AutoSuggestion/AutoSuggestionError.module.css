@@ -1,9 +1,15 @@
+.main {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  z-index: 10;
+}
+
 .auto_suggestion_error_holder {
   padding-left: 1.6rem;
 }
 
 .auto_suggestion_error_primary {
-  font-size: 1.6rem;
+  font-size: 1rem;
   line-height: 1.5;
   margin: 0px;
   color: rgb(156, 156, 156);
@@ -11,9 +17,25 @@
 }
 
 .auto_suggestion_error_secondary {
-  font-size: 1.3rem;
+  font-size: 0.8rem;
   line-height: 1.5;
   margin: 0px;
   color: rgb(156, 156, 156);
   font-weight: 400;
+}
+
+@media (min-width: 481px) {
+  .main {
+    max-height: 60rem;
+    border-radius: 0.8rem;
+    position: absolute;
+    overflow: auto;
+    top: 4rem;
+    visibility: visible;
+    opacity: 1;
+    border: 1px solid rgb(207, 207, 207);
+    box-shadow: rgb(28 28 28 / 8%) 0px 2px 8px;
+    transition: opacity 0.25s ease 0s, top 0.25s ease 0s;
+    padding: 1rem 0px;
+  }
 }

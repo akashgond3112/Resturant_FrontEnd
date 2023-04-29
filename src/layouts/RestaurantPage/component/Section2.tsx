@@ -16,6 +16,9 @@ import Tooltip from "@mui/material/Tooltip";
 export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection2Styles();
 
+  console.log(props.resaurant);
+  
+
   return (
     /* Information holder of the restaurant */
     <section className={classes.main}>
@@ -71,15 +74,11 @@ export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
               <section className={classes.restaurantHours}>
                 <section className={classes.openingHours}>
                   <span className={classes.isOpen}>
-                    {props.resaurant.current_opening_hours.open_now
-                      ? "Open"
-                      : "Close"}
+                    {props.resaurant.opening_hours.open_now ? "Open" : "Close"}
                   </span>
                   <span className={classes.currentOpeningHours}>
                     <MatchingDaySpan
-                      weekdayText={
-                        props.resaurant.current_opening_hours.weekday_text
-                      }
+                      weekdayText={props.resaurant.opening_hours.weekday_text}
                     />
                   </span>
                 </section>

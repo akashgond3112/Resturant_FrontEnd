@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Restaurant from "../../models/Restaurant/Restaurant";
 import classes from "./SuggestedRestaurant.module.css";
 
@@ -19,7 +20,11 @@ export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) 
 
   return (
     <>
-      <div className={classes["container"]} key={props.resaurant.place_id}>
+      <NavLink
+        className={classes["container"]}
+        key={props.resaurant.place_id}
+        to={`/restaurant/${props.resaurant.place_id}`}
+      >
         <div
           className={classes["image-holder-pri image-holder-sec"]}
           style={imageStyle}
@@ -71,7 +76,7 @@ export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) 
             {props.resaurant.business_status}
           </p>
         </div>
-      </div>
+      </NavLink>
     </>
   );
 };

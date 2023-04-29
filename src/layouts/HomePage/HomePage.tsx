@@ -35,7 +35,7 @@ export const HomePage = () => {
     <>
       <CssBaseline>
         <ExploreTopResturant />
-        <Grid container spacing={3} style={{ width: "100%" }}>
+        {/* <Grid container spacing={3} style={{ width: "100%" }}>
           <Grid item xs={12} md={4}>
             <List
               places={places}
@@ -52,7 +52,7 @@ export const HomePage = () => {
               setChildClicked={setChildClicked}
             />
           </Grid>
-        </Grid>
+        </Grid> */}
       </CssBaseline>
     </>
   );

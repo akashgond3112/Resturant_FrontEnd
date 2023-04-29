@@ -6,11 +6,13 @@ import Restaurant from "../../models/Restaurant/Restaurant";
 import { AutoSuggestionError } from "../AutoSuggestion/AutoSuggestionError";
 
 export const Navbar = () => {
-  const [lat, setLat] = useState(54.9677423);
-  const [lng, setLong] = useState(-1.6224093);
+  const [lat, setLat] = useState<number>(0);
+  const [lng, setLong] = useState<number>(0);
   const [errorDisplay, setErrorDisplay] = useState(false);
   const [resturants, setResturants] = useState<Restaurant[]>([]);
   const [search, setSearch] = useState("");
+  const [showAutosuggestionDisplay, setShowAutosuggestionDisplay] =
+    useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -98,7 +100,25 @@ export const Navbar = () => {
       setResturants([]);
       setErrorDisplay(false);
     }
-  }, [search]);
+  }, [lat, lng, search]);
+
+  useEffect(() => {
+    setShowAutosuggestionDisplay(!showAutosuggestionDisplay);
+  }, [resturants]);
+
+  /* If autosuggestion or autosuggestion error is diaplyed and 
+  user click anywhere in the dcoument close the autosugesstion tray */
+  useEffect(() => {
+    function handleClick() {
+      setShowAutosuggestionDisplay(false);
+      setErrorDisplay(false);
+      setSearch("");
+    }
+    document.addEventListener("click", handleClick);
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">
@@ -131,7 +151,7 @@ export const Navbar = () => {
                   <div className={classes["container"]}>
                     <div className={classes["search-icon-main"]}>
                       <i
-                        className={classes["search-icon-main"]}
+                        // className={classes["search-icon-main"]}
                         color="#828282"
                       >
                         <svg
@@ -154,14 +174,15 @@ export const Navbar = () => {
                       className={classes["search-input"]}
                       value={search}
                       onChange={(e) => setSearch(e.target.value)}
+                      type="text"
                     ></input>
-                    {resturants.length > 0 && (
-                      <div className={classes["search-result"]}>
-                        {resturants.map((resaurant) => (
-                          <SuggestedRestaurant resaurant={resaurant} />
-                        ))}
-                      </div>
-                    )}
+                    {showAutosuggestionDisplay
+                      ? resturants.map((resaurant) => (
+                          <div className={classes["search-result"]}>
+                            <SuggestedRestaurant resaurant={resaurant} />
+                          </div>
+                        ))
+                      : ``}
                     {errorDisplay && <AutoSuggestionError />}
                   </div>
                 </div>

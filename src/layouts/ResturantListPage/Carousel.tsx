@@ -27,7 +27,7 @@ export const Carousel: React.FC<{
                       className="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-3"
                       key={resaurant.place_id}
                     >
-                      <ReturnResturant resaurant={resaurant} />
+                      <ReturnResturant restaurant={resaurant} />
                     </div>
                   )
               )}
@@ -42,7 +42,7 @@ export const Carousel: React.FC<{
                       className="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-3"
                       key={resaurant.place_id}
                     >
-                      <ReturnResturant resaurant={resaurant} />
+                      <ReturnResturant restaurant={resaurant} />
                     </div>
                   )
               )}
@@ -57,7 +57,7 @@ export const Carousel: React.FC<{
                       className="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-3"
                       key={resaurant.place_id}
                     >
-                      <ReturnResturant resaurant={resaurant} />
+                      <ReturnResturant restaurant={resaurant} />
                     </div>
                   )
               )}
@@ -98,7 +98,7 @@ export const Carousel: React.FC<{
             className="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-3"
             key={props.restaurants[0].place_id}
           >
-            <ReturnResturant resaurant={props.restaurants[0]} />
+            <ReturnResturant restaurant={props.restaurants[0]} />
           </div>
         </div>
       </div>

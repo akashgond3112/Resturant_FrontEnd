@@ -5,10 +5,11 @@ import classes from "./ResturantListPage.module.css";
 import { EndOfResult } from "../utilities/EndOfResult";
 import { Carousel } from "./Carousel";
 import { ReturnResturant } from "./ReturnResturant";
+import { NavLink } from "react-router-dom";
 
-export const ResturantListPage = () => {
-  const [lat, setLat] = useState(54.9677423);
-  const [lng, setLong] = useState(-1.6224093);
+export const ResturantListPage: React.FC<{ setRestaurants: any }> = (props) => {
+  const [lat, setLat] = useState<number>(0);
+  const [lng, setLong] = useState<number>(0);
   const [nextPageToken, setGetNextPageToken] = useState("");
 
   useEffect(() => {
@@ -59,22 +60,39 @@ export const ResturantListPage = () => {
         <>
           <Carousel restaurants={resturants} />
           <div className={classes["container"]}>
-            {resturants.map((resaurant, index) => {
+            {resturants.map((restaurant, index) => {
               if (resturants.length === index + 1) {
                 return (
-                  <div
+                  <NavLink
                     ref={lastRestaurantElementRef}
-                    key={resaurant.place_id}
+                    key={restaurant.place_id}
                     className="mt-5"
+                    to={`/restaurant/${restaurant.place_id}`}
+                    onClick={() => {
+                      localStorage.setItem(
+                        restaurant.place_id,
+                        JSON.stringify(restaurant)
+                      );
+                    }}
                   >
-                    <ReturnResturant resaurant={resaurant} />
-                  </div>
+                    <ReturnResturant restaurant={restaurant} />
+                  </NavLink>
                 );
               } else {
                 return (
-                  <div key={resaurant.place_id} className="mt-5">
-                    <ReturnResturant resaurant={resaurant} />
-                  </div>
+                  <NavLink
+                    key={restaurant.place_id}
+                    className="mt-5"
+                    to={`/restaurant/${restaurant.place_id}`}
+                    onClick={() => {
+                      localStorage.setItem(
+                        restaurant.place_id,
+                        JSON.stringify(restaurant)
+                      );
+                    }}
+                  >
+                    <ReturnResturant restaurant={restaurant} />
+                  </NavLink>
                 );
               }
             })}

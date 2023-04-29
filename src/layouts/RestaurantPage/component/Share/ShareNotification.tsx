@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useShareNotificationStyles } from "./ShareNotificationModule";
 
 export const ShareNotification: React.FC<{
@@ -11,6 +11,16 @@ export const ShareNotification: React.FC<{
   };
 
   const classes = useShareNotificationStyles(stylesProps);
+
+  useEffect(() => {
+    // Hide the share url after 2 seconds
+    const timeoutId = setTimeout(() => {
+      props.setIsNotificationDisplayed(false);
+    }, 2000);
+
+    // Clear the timeout when the component unmounts or is hidden
+    return () => clearTimeout(timeoutId);
+  }, [props]);
 
   return (
     <div className={classes.shareNotificationContainer}>
