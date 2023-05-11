@@ -6,6 +6,13 @@ import { useEffect, useState } from "react";
 import { useHomePagePageStyles } from "./HomePageModule";
 import { fetchRestaurants } from "../../api/stateAPI";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 export const HomePage = () => {
 
   const classes = useHomePagePageStyles();

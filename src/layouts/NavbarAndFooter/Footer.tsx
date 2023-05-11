@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const Footer = () => {
   return (
     <div className="main-color">

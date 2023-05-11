@@ -2,6 +2,12 @@ import { NavLink } from "react-router-dom";
 import Restaurant from "../../models/Restaurant/Restaurant";
 import classes from "./SuggestedRestaurant.module.css";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) => {
   if (props.resaurant.photos[0] === undefined) {
     return null;

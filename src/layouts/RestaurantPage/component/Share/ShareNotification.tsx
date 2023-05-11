@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useShareNotificationStyles } from "./ShareNotificationModule";
+
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
 
 export const ShareNotification: React.FC<{
   isDisplayed: boolean;

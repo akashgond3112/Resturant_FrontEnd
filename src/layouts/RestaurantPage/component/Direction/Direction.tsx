@@ -1,6 +1,12 @@
 import React from "react";
 import { useDirectionStyles } from "./DirectionModule";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const Direction: React.FC<{
   url: string;
 }> = (props) => {

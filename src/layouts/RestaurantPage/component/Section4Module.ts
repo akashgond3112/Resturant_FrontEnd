@@ -1,5 +1,12 @@
 import { createStyles, makeStyles } from "@mui/styles";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 export const useSection4Styles = makeStyles(() =>
   createStyles({
     main: {

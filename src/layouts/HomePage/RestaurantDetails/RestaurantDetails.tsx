@@ -14,6 +14,12 @@ import Rating from "@mui/material/Rating";
 
 import { useRestaurantDetailsStyles } from "./RestaurantDetailsModule";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const RestaurantDetails: React.FC<{
   place: any;
   selected: boolean;

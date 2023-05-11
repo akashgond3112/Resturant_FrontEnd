@@ -1,5 +1,11 @@
 import axios from "axios";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const postLogin = async (userCredentials: object) => {
   try {
     const url: string = `${process.env.REACT_APP_BASE_URL}/api/v1/auth/login`;

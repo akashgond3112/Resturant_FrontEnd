@@ -6,6 +6,13 @@ import Section3 from "./component/Section3";
 import { Section4 } from "./component/Section4";
 import Restaurant from "../../models/Restaurant/Restaurant";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 export const ResturantDetailPage: React.FC<{}> = (props) => {
   const [restaurant, setRestaurant] = useState<Restaurant | undefined>(
     undefined

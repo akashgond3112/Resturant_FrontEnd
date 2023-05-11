@@ -1,6 +1,12 @@
 import Close from "./Close";
 import Open from "./Open";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 class Period {
   close: Close;
   open: Open;

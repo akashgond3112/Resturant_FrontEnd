@@ -1,3 +1,9 @@
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 class Close {
   date: string;
   day: number;

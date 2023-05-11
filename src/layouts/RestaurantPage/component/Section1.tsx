@@ -6,6 +6,11 @@ import img2 from "../../../Images/PublicImages/restaurant_2.png";
 import img3 from "../../../Images/PublicImages/restaurant_3.png";
 import img4 from "../../../Images/PublicImages/restaurant_4.png";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
 
 export const Section1: React.FC<{ restaurant: Restaurant }> = (props) => {
   const classes = useSection1Styles();

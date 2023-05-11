@@ -5,6 +5,12 @@ import { useListStyles } from "./AutoCompleteCityModule";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 type Dispatcher<S> = Dispatch<SetStateAction<S>>; // Define type alias for Dispatcher<S>
 
 // Define props for AutoCompleteCity component

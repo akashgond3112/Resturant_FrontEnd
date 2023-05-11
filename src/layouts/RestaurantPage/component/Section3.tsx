@@ -3,6 +3,13 @@ import { useSection3Styles } from "./Section3Module";
 import { AddReview } from "./Review/AddReviewModal";
 import AuthContext from "../../../store/authContext";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 export const Section3: React.FC<{
   restaurantId: string;
 }> = (props) => {

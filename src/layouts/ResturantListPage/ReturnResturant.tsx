@@ -3,6 +3,12 @@ import Restaurant from "../../models/Restaurant/Restaurant";
 import { Rating } from "./Rating";
 import classes from "./ReturnResturant.module.css";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const ReturnResturant: React.FC<{ restaurant: Restaurant }> = (props) => {
   const distance = useGetDistance(
     props.restaurant.geometry.location.lat,

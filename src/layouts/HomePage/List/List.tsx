@@ -4,6 +4,12 @@ import { useListStyles } from "./ListModule";
 import { RestaurantDetails } from "../RestaurantDetails/RestaurantDetails";
 import { NavLink } from "react-router-dom";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const List: React.FC<{
   places: any;
   childClicked: any;

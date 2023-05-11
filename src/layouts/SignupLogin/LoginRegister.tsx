@@ -4,6 +4,12 @@ import { useHistory } from "react-router-dom";
 import { postRegister } from "../../api/stateAPI";
 import AuthContext from "../../store/authContext";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 type Props = {
   // onFormSwitch: (formType: string) => void;
 };

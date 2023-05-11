@@ -4,6 +4,12 @@ import { useMediaQuery } from "@mui/material";
 import { useMapStyles } from "./MapModule";
 import Marker from "./Marker";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 type Dispatcher<S> = Dispatch<SetStateAction<S>>;
 
 export const Map: React.FC<{

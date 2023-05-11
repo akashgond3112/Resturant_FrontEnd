@@ -6,6 +6,12 @@ import { Rating, Stack } from "@mui/material";
 import { RestaurantReviews } from "../../../../api/RestaurantReview";
 import AuthContext from "../../../../store/authContext";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const AddReview: React.FC<{
   addReviewButtonClicked: boolean;
   setAddReviewButtonClicked: any;

@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import { useExploreRestauranStyles } from "./ExploreRestaurantsModules";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
 
 export const ExploreTopResturant = () => {
   const classes = useExploreRestauranStyles();

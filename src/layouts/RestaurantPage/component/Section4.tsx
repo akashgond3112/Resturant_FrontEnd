@@ -5,6 +5,13 @@ import { RestaurantReviews } from "../../../api/RestaurantReview";
 import avatar from "../../../Images/PublicImages/akash.jpg";
 import AuthContext from "../../../store/authContext";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 export const Section4: React.FC<{
   restaurantName: string;
 }> = (props) => {

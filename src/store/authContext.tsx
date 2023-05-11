@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { getUserInfo, postLogin, postLogout } from "../api/stateAPI";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 const AuthContext = React.createContext({
   isLoggedIn: false,
   onLogout: () => {},

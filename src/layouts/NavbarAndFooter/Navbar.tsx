@@ -6,6 +6,12 @@ import Restaurant from "../../models/Restaurant/Restaurant";
 import { AutoSuggestionError } from "../AutoSuggestion/AutoSuggestionError";
 import AuthContext from "../../store/authContext";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const Navbar = () => {
   const [lat, setLat] = useState<number>(0);
   const [lng, setLong] = useState<number>(0);

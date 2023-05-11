@@ -1,6 +1,12 @@
 // Import React hooks
 import { useEffect, useState } from "react";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 // Define custom React hook named `useGetDistance`
 export const useGetDistance = (lat2: number, lon2: number, unit: string) => {
   // Define state variable `distance` and function to update it `setDistance`

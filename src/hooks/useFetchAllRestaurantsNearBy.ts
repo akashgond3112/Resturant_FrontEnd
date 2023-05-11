@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import Restaurant from "../models/Restaurant/Restaurant";
 
+
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 // A custom hook that fetches nearby restaurants based on latitude, longitude, and a nextPageToken.
 export const useFetchAllRestaurantsNearBy = (
   lat: number,
