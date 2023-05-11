@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useReviewStyles } from "./AddReviewModalmodule";
-import avatar from "../../../../Images/PublicImages/akash.jpg";
+import avatar from "../../../../Images/PublicImages/avatar.jpg";
 import { addReview } from "../../../../api/stateAPI";
 import { Rating, Stack } from "@mui/material";
 import { RestaurantReviews } from "../../../../api/RestaurantReview";

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { useSection4Styles } from "./Section4Module";
 import { fetchSentiment, getReviews } from "../../../api/stateAPI";
 import { RestaurantReviews } from "../../../api/RestaurantReview";
-import avatar from "../../../Images/PublicImages/akash.jpg";
+import avatar from "../../../Images/PublicImages/avatar.jpg";
 import AuthContext from "../../../store/authContext";
 
 /*
