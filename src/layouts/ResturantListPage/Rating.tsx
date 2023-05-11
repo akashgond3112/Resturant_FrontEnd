@@ -1,4 +1,11 @@
 import classes from "./Rating.module.css";
+
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const Rating: React.FC<{ rating: number }> = (props) => {
   let ratingColor: string;
 

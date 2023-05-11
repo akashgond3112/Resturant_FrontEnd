@@ -3,6 +3,12 @@ import OpeningHours from "../openingClosingHours/OpeningHours";
 import Photo from "../photo/Photo";
 import PlusCode from "../utilities/PlusCode";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 class ResturantModal {
   business_status: string;
   formatted_address: string;

@@ -13,11 +13,14 @@ import Share from "./Share/Share";
 import Restaurant from "../../../models/Restaurant/Restaurant";
 import Tooltip from "@mui/material/Tooltip";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection2Styles();
-
-  console.log(props.resaurant);
-  
 
   return (
     /* Information holder of the restaurant */

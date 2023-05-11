@@ -7,7 +7,13 @@ import { Carousel } from "./Carousel";
 import { ReturnResturant } from "./ReturnResturant";
 import { NavLink } from "react-router-dom";
 
-export const ResturantListPage: React.FC<{ setRestaurants: any }> = (props) => {
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+export const ResturantListPage: React.FC<{}> = (props) => {
   const [lat, setLat] = useState<number>(0);
   const [lng, setLong] = useState<number>(0);
   const [nextPageToken, setGetNextPageToken] = useState("");

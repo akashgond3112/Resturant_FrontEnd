@@ -1,3 +1,9 @@
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 class AddressComponent {
   long_name: string;
   short_name: string;

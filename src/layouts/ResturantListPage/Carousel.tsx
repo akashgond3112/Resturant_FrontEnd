@@ -1,6 +1,12 @@
 import Restaurant from "../../models/Restaurant/Restaurant";
 import { ReturnResturant } from "./ReturnResturant";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const Carousel: React.FC<{
   restaurants: Restaurant[];
 }> = (props) => {

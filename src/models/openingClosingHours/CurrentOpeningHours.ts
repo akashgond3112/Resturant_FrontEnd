@@ -1,5 +1,11 @@
 import Period from "./Period";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 class CurrentOpeningHours {
   open_now: boolean;
   periods: Period[];

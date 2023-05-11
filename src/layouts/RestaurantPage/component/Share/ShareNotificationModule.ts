@@ -1,5 +1,11 @@
 import { makeStyles } from "@mui/styles";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export interface StyleProps {
   visible: boolean;
 }

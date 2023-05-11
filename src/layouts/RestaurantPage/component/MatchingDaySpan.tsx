@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
+
 interface Props {
   weekdayText: string[];
 }

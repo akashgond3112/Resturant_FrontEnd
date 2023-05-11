@@ -6,6 +6,12 @@ import Photo from "../photo/Photo";
 import Review from "../reviews/Review";
 import PlusCode from "../utilities/PlusCode";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 class Restaurant {
   address_components: AddressComponent[];
   adr_address: string;

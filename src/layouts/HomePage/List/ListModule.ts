@@ -1,6 +1,12 @@
 import { createTheme } from "@mui/material";
 import { createStyles, makeStyles } from "@mui/styles";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 const theme = createTheme();
 
 export const useListStyles = makeStyles(() =>

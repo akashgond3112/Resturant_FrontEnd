@@ -1,6 +1,12 @@
 import {makeStyles } from "@mui/styles";
 import { alpha, createTheme } from "@mui/material";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 const theme = createTheme();
 
 

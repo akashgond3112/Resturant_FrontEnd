@@ -1,5 +1,11 @@
-import { BorderBottom } from "@mui/icons-material";
 import { createStyles, makeStyles } from "@mui/styles";
+
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 
 export const useSection4Styles = makeStyles(() =>
   createStyles({
@@ -183,7 +189,6 @@ export const useSection4Styles = makeStyles(() =>
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "#0E5020",
       color: "rgb(255, 255, 255)",
       height: "1.6rem",
       minWidth: "3rem",

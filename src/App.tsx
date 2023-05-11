@@ -5,12 +5,9 @@ import { Navbar } from "./layouts/NavbarAndFooter/Navbar";
 import { ResturantListPage } from "./layouts/ResturantListPage/ResturantListPage";
 import { Redirect, Route, Switch } from "react-router-dom";
 import LoginRegister from "./layouts/SignupLogin/LoginRegister";
-import Restaurant from "./models/Restaurant/Restaurant";
-import { useState } from "react";
 import { ResturantDetailPage } from "./layouts/RestaurantPage/ResturantDetailPage";
 
 export const App = () => {
-  const [restaurants, setRestaurants] = useState<Restaurant>();
 
   return (
     <div className="d-flex flex-column min-vh-100">
@@ -23,14 +20,14 @@ export const App = () => {
         <Route path="/home">
           <HomePage />
         </Route>
-        <Route path="/sigin">
+        <Route path="/signin">
           <LoginRegister />
         </Route>
         <Route path="/restaurants">
-          <ResturantListPage setRestaurants={setRestaurants} />
+          <ResturantListPage/>
         </Route>
         <Route path="/search">
-          <ResturantListPage setRestaurants={setRestaurants} />
+          <ResturantListPage/>
         </Route>
         <Route path="/restaurant/:restaurantId">
           <ResturantDetailPage />

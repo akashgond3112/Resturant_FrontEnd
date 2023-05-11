@@ -1,6 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoginRegisterPageStyles } from "./LoginRegisterModule";
 import { useHistory } from "react-router-dom";
+import { postRegister } from "../../api/stateAPI";
+import AuthContext from "../../store/authContext";
+
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
 
 type Props = {
   // onFormSwitch: (formType: string) => void;
@@ -12,21 +20,42 @@ function LoginRegister({}: Props) {
 
   const [displaySignInForm, setdisplaySignInForm] = useState(false);
   const [displayLogin, setdisplayLogin] = useState(true);
-
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [gender, setGender] = useState("");
   const [emptyFields, setEmptyFields] = useState<string[]>([]);
+
+  const ctx = useContext(AuthContext);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // create a request body with the form data
-    const requestBody = JSON.stringify({ email, pass });
-
-    console.log(requestBody);
-    // redirect to the home page
-    history.push("/");
+    if (displayLogin) {
+      ctx.onLogin(email, pass);
+      history.push("/");
+    } else if (displaySignInForm) {
+      postRegister({
+        userName: name,
+        email: email,
+        password: pass,
+        mobileNumber: phone,
+        gender: gender,
+      })
+        .then((data: any) => {
+          if (data.data.status === 201) {
+            // Set the token in local storage
+            localStorage.setItem("access_token", data.data.access_token);
+            localStorage.setItem("refresh_token", data.data.refresh_token);
+            history.push("/");
+          }
+        })
+        .catch((error) => {
+          // Handle error
+          console.log(error);
+        });
+    }
 
     const empty = [];
     if (displaySignInForm) {
@@ -70,7 +99,7 @@ function LoginRegister({}: Props) {
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              type="email"
+              type="text"
               placeholder="youremail@gmail.com"
               id="email"
               name="email"
@@ -116,6 +145,18 @@ function LoginRegister({}: Props) {
               name="name"
               id="name"
               placeholder="full Name"
+              className={classes.input}
+            />
+            <label className={classes.label} htmlFor="name">
+              Gender
+            </label>
+            <input
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              type="gender"
+              name="gender"
+              id="gender"
+              placeholder="Gender"
               className={classes.input}
             />
             <label className={classes.label} htmlFor="phone">

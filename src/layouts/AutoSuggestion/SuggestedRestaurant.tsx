@@ -2,6 +2,12 @@ import { NavLink } from "react-router-dom";
 import Restaurant from "../../models/Restaurant/Restaurant";
 import classes from "./SuggestedRestaurant.module.css";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) => {
   if (props.resaurant.photos[0] === undefined) {
     return null;
@@ -9,12 +15,12 @@ export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) 
   const imgSrcUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${props.resaurant.photos[0].photo_reference}&key=${process.env.REACT_APP_GOOGLE_KEY}`;
 
   const imageStyle = {
-    height: "7.2rem",
-    width: "7.2rem",
+    height: "6rem",
+    width: "6rem",
   };
 
   const ratingStyle = {
-    height: "1.6rem",
+    height: "1.5rem",
     width: "4rem",
   };
 
@@ -24,6 +30,7 @@ export const SuggestedRestaurant: React.FC<{ resaurant: Restaurant }> = (props) 
         className={classes["container"]}
         key={props.resaurant.place_id}
         to={`/restaurant/${props.resaurant.place_id}`}
+        style={{ textDecoration: "none" }}
       >
         <div
           className={classes["image-holder-pri image-holder-sec"]}

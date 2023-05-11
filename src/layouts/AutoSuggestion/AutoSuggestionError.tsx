@@ -1,5 +1,11 @@
 import classes from "./AutoSuggestionError.module.css"
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 export const AutoSuggestionError = () => {
   return (
     <div className={classes["main"]}>

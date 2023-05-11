@@ -3,6 +3,12 @@ import { Paper, Rating, Typography } from "@mui/material";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import { useMapStyles } from "./MapModule";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 type MarkerProps = {
   lat: number;
   lng: number;

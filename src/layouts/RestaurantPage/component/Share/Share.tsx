@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import { useShareStyles } from "./ShareModule";
 import { ShareNotification } from "./ShareNotification";
 
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 type Props = {};
 
 function Share({}: Props) {

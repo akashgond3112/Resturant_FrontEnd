@@ -1,8 +1,14 @@
+/*
+ * @author Team-Beta
+ * @Project React-App-Frontend
+ * @Copyright (C) 2023 Newcastle University, UK
+ */
+
 .container {
   display: flex;
   position: relative;
   background: rgb(255, 255, 255);
-  padding: 1.5rem 1.4rem;
+  padding: 1.5rem;
   box-shadow: none;
   filter: none;
 }
@@ -48,7 +54,7 @@
   line-height: 1.5;
   margin: 0px;
   color: rgb(54, 54, 54);
-  font-size: 1.6rem;
+  font-size: 1rem;
   font-weight: 500;
   text-align: left;
   width: 85%;
@@ -122,7 +128,7 @@
 }
 
 .address {
-  font-size: 1.4rem;
+  font-size: 1rem;
   line-height: 1.5;
   margin: 0px;
   color: rgb(79, 79, 79);

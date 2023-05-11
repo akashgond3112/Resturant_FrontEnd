@@ -6,11 +6,10 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useRestaurantPageStyles = makeStyles(() =>
+export const useHomePagePageStyles = makeStyles(() =>
   createStyles({
     main: {
-      position: "relative",
-      maxWidth: "80rem",
+      maxWidth: "90rem",
       maxHeight: "initial",
       margin: "1rem auto 0px",
     },
