@@ -16,9 +16,6 @@ import Tooltip from "@mui/material/Tooltip";
 export const Section2: React.FC<{ resaurant: Restaurant }> = (props) => {
   const classes = useSection2Styles();
 
-  console.log(props.resaurant);
-  
-
   return (
     /* Information holder of the restaurant */
     <section className={classes.main}>

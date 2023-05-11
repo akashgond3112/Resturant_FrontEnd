@@ -10,11 +10,10 @@ export const ResturantDetailPage: React.FC<{}> = (props) => {
   const [restaurant, setRestaurant] = useState<Restaurant | undefined>(
     undefined
   );
-
   const key = window.location.pathname.split("/")[2];
 
   useEffect(() => {
-    const fetchBook = async () => {
+    const fetchRestaurant = async () => {
       const url: string = `${process.env.REACT_APP_BASE_URL}/api/v1/restaurant/${key}`;
 
       const response = await fetch(url);
@@ -66,25 +65,9 @@ export const ResturantDetailPage: React.FC<{}> = (props) => {
       setRestaurant(loadedRestaurant);
     };
 
-    fetchBook().catch((error: any) => {
+    fetchRestaurant().catch((error: any) => {
       console.log(error);
     });
-  }, []);
-
-  /* This use effect maintain the page state , so that whenever user refresh , the user willbe in same postion */
-  useEffect(() => {
-    // Get the stored scroll position, or 0 if it doesn't exist
-    const storedScrollY = Number(localStorage.getItem("scrollY")) || 0;
-
-    // Scroll to the stored position after the component mounts
-    window.scrollTo(0, storedScrollY);
-
-    // Store the current scroll position in localStorage whenever it changes
-    const handleScroll = () => {
-      localStorage.setItem("scrollY", window.scrollY.toString());
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const classes = useRestaurantPageStyles();
@@ -92,8 +75,8 @@ export const ResturantDetailPage: React.FC<{}> = (props) => {
     <div className={classes.main}>
       <Section1 restaurant={restaurant} />
       <Section2 resaurant={restaurant} />
-      <Section3 />
-      <Section4 resaurant={restaurant} />
+      <Section3 restaurantId={key} />
+      <Section4 restaurantName={restaurant.name} />
     </div>
   ) : (
     <div></div>

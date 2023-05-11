@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import Restaurant from "../models/Restaurant/Restaurant";
 
+// A custom hook that fetches nearby restaurants based on latitude, longitude, and a nextPageToken.
 export const useFetchAllRestaurantsNearBy = (
   lat: number,
   lng: number,
   nextPageToken: string
 ) => {
+  // Define the state variables to be used in the hook.
   const [resturants, setResturants] = useState<Restaurant[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [httpError, setHttpError] = useState(null);
@@ -13,20 +15,21 @@ export const useFetchAllRestaurantsNearBy = (
   const [tmpNextPageToken, setTmpNextPageToken] = useState("");
   const [endOfPage, setEndOfPage] = useState(false);
 
+  // useEffect hook that is called whenever the hook dependencies change (i.e. lat, lng, or nextPageToken).
   useEffect(() => {
     setIsLoading(true);
     setHttpError(null);
 
+    // Asynchronous function that fetches nearby restaurants from the API.
     const fetchNearByResturants = async () => {
-
+      // If lat and lng are both 0, return and do nothing.
       if (lat === 0 && lng === 0) {
         return;
       }
 
       let url: string = "";
 
-      // url = `${process.env.REACT_APP_BASE_URL}/api/v1/restaurants?lat=${lat}&lng=${lng}&query=restaurants&radius=2000`;
-
+      // Define the url to fetch based on whether there is a nextPageToken or not.
       if (!hasNextPage) {
         url = `${process.env.REACT_APP_BASE_URL}/api/v1/restaurants?lat=${lat}&lng=${lng}&query=restaurants&radius=2000&pageToken=`;
       } else {
@@ -35,13 +38,17 @@ export const useFetchAllRestaurantsNearBy = (
 
       const response = await fetch(url);
 
+      // If the server returns a 500 error, do nothing for now.
       if (response.status === 500) {
       }
 
+      // Parse the response as JSON.
       const responseJson = await response.json();
 
+      // Extract the restaurant data from the response.
       const responseData = responseJson.results;
 
+      // Convert the restaurant data into Restaurant objects and add them to loadedRestaurants.
       const loadedResturants: Restaurant[] = [];
 
       for (const key in responseData) {
@@ -67,7 +74,7 @@ export const useFetchAllRestaurantsNearBy = (
           current_opening_hours: {
             open_now: false,
             periods: [],
-            weekday_text: []
+            weekday_text: [],
           },
           delivery: false,
           dine_in: false,
@@ -82,12 +89,13 @@ export const useFetchAllRestaurantsNearBy = (
           url: "",
           utc_offset: 0,
           vicinity: "",
-          website: ""
+          website: "",
         });
       }
 
+      //  update the restaurants with new data
       setResturants((prev) => [...prev, ...loadedResturants]);
-      setIsLoading(false);
+      setIsLoading(false); //  setting the loading as as false
 
       if (
         responseJson.next_page_token !== "" &&
@@ -109,6 +117,7 @@ export const useFetchAllRestaurantsNearBy = (
     });
   }, [lat, lng, nextPageToken]);
 
+  // returning the data back
   return {
     resturants,
     isLoading,

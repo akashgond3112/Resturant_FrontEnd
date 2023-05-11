@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import Restaurant from "../../../../models/Restaurant/Restaurant";
+import React, { useContext, useState } from "react";
 import { useReviewStyles } from "./AddReviewModalmodule";
 import avatar from "../../../../Images/PublicImages/akash.jpg";
+import { addReview } from "../../../../api/stateAPI";
+import { Rating, Stack } from "@mui/material";
+import { RestaurantReviews } from "../../../../api/RestaurantReview";
+import AuthContext from "../../../../store/authContext";
 
-export const Review: React.FC<{
+export const AddReview: React.FC<{
   addReviewButtonClicked: boolean;
   setAddReviewButtonClicked: any;
+  restaurantId: string;
 }> = (props) => {
   const classes = useReviewStyles();
   // const [showReviewModal, setshowReviewModal] = useState(false);
@@ -13,6 +17,9 @@ export const Review: React.FC<{
   const [deliveryOptionSelected, setDeliveryOptionSelected] = useState(false);
   const [writeReviewBoxSelected, setWriteReviewBoxSelected] = useState(false);
   const [reviewValue, setReviewValue] = useState("");
+  const [ratingValue, setRatingValue] = useState<number | null>(null);
+
+  const ctx = useContext(AuthContext);
 
   const handleDelieveryOption = () => {
     setDeliveryOptionSelected(true);
@@ -24,7 +31,12 @@ export const Review: React.FC<{
     setDeliveryOptionSelected(false);
   };
 
-  
+  const handleRatingValue = (
+    event: React.ChangeEvent<{}>,
+    newValue: number | null
+  ) => {
+    setRatingValue(newValue);
+  };
 
   /* Handle when user press enter button to add the comment. */
   const onAddReviewEnterPress = (e: {
@@ -49,7 +61,34 @@ export const Review: React.FC<{
     target: { value: React.SetStateAction<string> };
   }) => {
     setReviewValue(event.target.value);
-    console.log(reviewValue);
+  };
+
+  const submitReview = () => {
+    addReview(
+      {
+        restaurantId: props.restaurantId,
+        rating: ratingValue,
+        review: reviewValue,
+        deliveryAvailable: deliveryOptionSelected ? "yes" : "no",
+        dineInAvailable: diningOptionSelected ? "yes" : "no",
+      },
+      ctx.token
+    )
+      .then((data: any) => {
+        if (data.status === 200) {
+          const restaurantReview: RestaurantReviews =
+            data.data as RestaurantReviews; // Cast the data to RestaurantReviews
+          console.log(restaurantReview);
+        }
+      })
+      .catch((error) => {
+        // Handle error
+        console.log(error);
+      });
+
+    setWriteReviewBoxSelected(false);
+    setReviewValue("");
+    props.setAddReviewButtonClicked(!props.addReviewButtonClicked);
   };
 
   return (
@@ -216,6 +255,13 @@ export const Review: React.FC<{
                 </section>
               </div>
               {/* Dining And Delievery Option end */}
+              <Stack spacing={2}>
+                <Rating
+                  value={ratingValue}
+                  onChange={handleRatingValue}
+                  precision={0.5}
+                />
+              </Stack>
               {/* Writing Review section start */}
               <section className={classes.writeReviewContainer}>
                 <section className={classes.writeReviewMain}>
@@ -271,6 +317,7 @@ export const Review: React.FC<{
                   tabIndex={0}
                   aria-disabled="false"
                   className={classes.submitReviewMain}
+                  onClick={submitReview}
                 >
                   <span
                     tabIndex={-1}

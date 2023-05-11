@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
 import classes from "./NavBar.module.css";
 import { SuggestedRestaurant } from "../AutoSuggestion/SuggestedRestaurant";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Restaurant from "../../models/Restaurant/Restaurant";
 import { AutoSuggestionError } from "../AutoSuggestion/AutoSuggestionError";
+import AuthContext from "../../store/authContext";
 
 export const Navbar = () => {
   const [lat, setLat] = useState<number>(0);
@@ -13,6 +14,13 @@ export const Navbar = () => {
   const [search, setSearch] = useState("");
   const [showAutosuggestionDisplay, setShowAutosuggestionDisplay] =
     useState(false);
+
+  const ctx = useContext(AuthContext);
+
+  const handleLogout = () => {
+    // Do something to log the user out
+    ctx.onLogout();
+  };
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -27,13 +35,12 @@ export const Navbar = () => {
     setErrorDisplay(false);
 
     const fetchNearByResturants = async () => {
-      let url: string = `http://localhost:8080/api/v1/restaurants/search/autoSuggest?keyword=${search}&lat=${lat}&lng=${lng}&radius=1600`;
-
-      // url = `${process.env.REACT_APP_BASE_URL}/api/v1/restaurants?lat=${lat}&lng=${lng}&query=restaurants&radius=2000`;
+      let url: string = `${process.env.REACT_APP_BASE_URL}/api/v1/restaurants/search/autoSuggest?keyword=${search}&lat=${lat}&lng=${lng}&radius=1600`;
 
       const response = await fetch(url);
 
       if (response.status === 500) {
+        setErrorDisplay(true);
       }
 
       const responseJson = await response.json();
@@ -87,6 +94,8 @@ export const Navbar = () => {
       if (loadedResturants.length > 0) {
         setResturants(loadedResturants);
         setErrorDisplay(false);
+      setShowAutosuggestionDisplay(true);
+
       } else {
         setErrorDisplay(true);
       }
@@ -99,12 +108,9 @@ export const Navbar = () => {
     } else {
       setResturants([]);
       setErrorDisplay(false);
+      setShowAutosuggestionDisplay(false);
     }
   }, [lat, lng, search]);
-
-  useEffect(() => {
-    setShowAutosuggestionDisplay(!showAutosuggestionDisplay);
-  }, [resturants]);
 
   /* If autosuggestion or autosuggestion error is diaplyed and 
   user click anywhere in the dcoument close the autosugesstion tray */
@@ -123,7 +129,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">
       <div className="container-fluid">
-        <span className="navbar-brand">Food aramak</span>
+        <span className="navbar-brand">Food Hub</span>
         <button
           className="navbar-toggler"
           type="button"
@@ -138,7 +144,11 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink className="nav-link" to={"/home"}>
+              <NavLink
+                className="nav-link"
+                to={"/home"}
+                style={{ textDecoration: "none" }}
+              >
                 Home
               </NavLink>
             </li>
@@ -176,13 +186,18 @@ export const Navbar = () => {
                       onChange={(e) => setSearch(e.target.value)}
                       type="text"
                     ></input>
-                    {showAutosuggestionDisplay
-                      ? resturants.map((resaurant) => (
-                          <div className={classes["search-result"]}>
+                    <div
+                      className={classes["search-result"]}
+                      style={{
+                        display: showAutosuggestionDisplay ? "" : "none",
+                      }}
+                    >
+                      {showAutosuggestionDisplay
+                        ? resturants.map((resaurant) => (
                             <SuggestedRestaurant resaurant={resaurant} />
-                          </div>
-                        ))
-                      : ``}
+                          ))
+                        : ``}
+                    </div>
                     {errorDisplay && <AutoSuggestionError />}
                   </div>
                 </div>
@@ -191,13 +206,24 @@ export const Navbar = () => {
           </ul>
           <ul className="navbar-nav ms-auto">
             <li className="nav-item  m-2">
-              <NavLink
-                type="button"
-                className="btn btn-outline-light"
-                to={"/sigin"}
-              >
-                Sign in
-              </NavLink>
+              {ctx.isLoggedIn ? (
+                <NavLink
+                  type="button"
+                  className="btn btn-outline-light"
+                  to={""}
+                  onClick={handleLogout}
+                >
+                  Log out
+                </NavLink>
+              ) : (
+                <NavLink
+                  type="button"
+                  className="btn btn-outline-light"
+                  to={"/signin"}
+                >
+                  Log in
+                </NavLink>
+              )}
             </li>
           </ul>
         </div>

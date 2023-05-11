@@ -5,23 +5,27 @@ import { useListStyles } from "./AutoCompleteCityModule";
 import SearchIcon from "@mui/icons-material/Search";
 import React from "react";
 
-type Dispatcher<S> = Dispatch<SetStateAction<S>>;
+type Dispatcher<S> = Dispatch<SetStateAction<S>>; // Define type alias for Dispatcher<S>
 
+// Define props for AutoCompleteCity component
 export const AutoCompleteCity: React.FC<{
-  onLoad: Dispatcher<any>;
-  onPlaceChanged: any;
+  onLoad: Dispatcher<any>; // Function that gets called with AutocompleteService object when loaded
+  onPlaceChanged: any; // Function that gets called when user selects a place from the list
 }> = (props) => {
-  const classes = useListStyles();
+  const classes = useListStyles(); // Get CSS styles from useListStyles hook
 
+  // Return Autocomplete component with search bar
   return (
     <Autocomplete onLoad={props.onLoad} onPlaceChanged={props.onPlaceChanged}>
       <div className={classes.search}>
+        {/* CSS class for search bar container */}
         <div className={classes.searchIcon}>
+          {/* CSS class for search icon */}
           <SearchIcon />
         </div>
         <InputBase
-          placeholder="Search…"
-          classes={{ root: classes.inputRoot, input: classes.inputInput }}
+          placeholder="Search…" // Placeholder text for search bar
+          classes={{ root: classes.inputRoot, input: classes.inputInput }} // CSS classes for search bar input
         />
       </div>
     </Autocomplete>

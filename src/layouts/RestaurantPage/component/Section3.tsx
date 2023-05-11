@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useSection3Styles } from "./Section3Module";
-import { Review } from "./Review/AddReviewModal";
+import { AddReview } from "./Review/AddReviewModal";
+import AuthContext from "../../../store/authContext";
 
-export const Section3: React.FC<{}> = (props) => {
+export const Section3: React.FC<{
+  restaurantId: string;
+}> = (props) => {
   const classes = useSection3Styles();
 
   const [addReviewButtonClicked, setAddReviewButtonClicked] = useState(false);
+  const ctx = useContext(AuthContext);
 
   return (
     <>
@@ -28,30 +32,34 @@ export const Section3: React.FC<{}> = (props) => {
               <hr className={classes.mainBorder} />
             </section>
             {/* Add Review section start */}
-            <section className={classes.addReviewContainer}>
-              <button
-                // role="presentation"
-                tabIndex={0}
-                aria-disabled="false"
-                className={classes.addReviewMain}
-                onClick={() =>
-                  setAddReviewButtonClicked(!addReviewButtonClicked)
-                }
-              >
-                <span tabIndex={-1} className={classes.addReviewSpanPrimary}>
-                  <span className={classes.addReviewSpanSecondary}>
-                    Add Review
+
+            {ctx.isLoggedIn && (
+              <section className={classes.addReviewContainer}>
+                <button
+                  // role="presentation"
+                  tabIndex={0}
+                  aria-disabled="false"
+                  className={classes.addReviewMain}
+                  onClick={() =>
+                    setAddReviewButtonClicked(!addReviewButtonClicked)
+                  }
+                >
+                  <span tabIndex={-1} className={classes.addReviewSpanPrimary}>
+                    <span className={classes.addReviewSpanSecondary}>
+                      Add Review
+                    </span>
                   </span>
-                </span>
-              </button>
-            </section>
+                </button>
+              </section>
+            )}
             {/* Add Review section end */}
           </section>
         </div>
       </article>
-      <Review
+      <AddReview
         addReviewButtonClicked={addReviewButtonClicked}
         setAddReviewButtonClicked={setAddReviewButtonClicked}
+        restaurantId={props.restaurantId}
       />
     </>
   );

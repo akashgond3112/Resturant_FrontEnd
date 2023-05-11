@@ -1,4 +1,3 @@
-import { BorderBottom } from "@mui/icons-material";
 import { createStyles, makeStyles } from "@mui/styles";
 
 export const useSection4Styles = makeStyles(() =>
@@ -183,7 +182,6 @@ export const useSection4Styles = makeStyles(() =>
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "#0E5020",
       color: "rgb(255, 255, 255)",
       height: "1.6rem",
       minWidth: "3rem",
