@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,9 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-
-export const useSection4Styles = makeStyles(() =>
-  createStyles({
+export const useSection4Styles = makeStyles()(() => {
+  return {
     main: {
       width: "100%",
     },
@@ -429,5 +428,5 @@ export const useSection4Styles = makeStyles(() =>
       //     width: "calc(100% + 1rem)",
       //   },
     },
-  })
-);
+  };
+});

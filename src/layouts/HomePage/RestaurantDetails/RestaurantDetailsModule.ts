@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,9 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-
-export const useRestaurantDetailsStyles = makeStyles(() =>
-  createStyles({
+export const useRestaurantDetailsStyles = makeStyles()(() => {
+  return {
     chip: {
       margin: "1px 1px 1px 0",
     },
@@ -23,5 +22,5 @@ export const useRestaurantDetailsStyles = makeStyles(() =>
       alignItems: "center",
       justifyContent: "space-between",
     },
-  })
-);
+  };
+});

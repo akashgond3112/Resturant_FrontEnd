@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,9 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-
-export const useSection2Styles = makeStyles(() =>
-  createStyles({
+export const useSection2Styles = makeStyles()(() => {
+  return {
     main: {
       position: "sticky",
       top: "0px",
@@ -183,5 +182,5 @@ export const useSection2Styles = makeStyles(() =>
       width: "calc(100% + 1rem)",
       paddingRight: "1rem",
     },
-  })
-);
+  };
+});

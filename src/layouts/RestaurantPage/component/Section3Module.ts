@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,9 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-
-export const useSection3Styles = makeStyles(() =>
-  createStyles({
+export const useSection3Styles = makeStyles()(() => {
+  return {
     main: {
       position: "sticky",
       top: "210px",
@@ -174,5 +173,5 @@ export const useSection3Styles = makeStyles(() =>
         minWidth: "calc(100% - 2px)",
       },
     },
-  })
-);
+  };
+});

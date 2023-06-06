@@ -12,11 +12,13 @@ export const ShareNotification: React.FC<{
   content: string;
   setIsNotificationDisplayed: any;
 }> = (props) => {
-  const stylesProps = {
-    visible: props.isDisplayed ? true : false,
-  };
+  // const stylesProps = {
+  //   visible: props.isDisplayed ? true : false,
+  // };
 
-  const classes = useShareNotificationStyles(stylesProps);
+  const { classes } = useShareNotificationStyles({
+    stylesProps: props.isDisplayed,
+  });
 
   useEffect(() => {
     // Hide the share url after 2 seconds

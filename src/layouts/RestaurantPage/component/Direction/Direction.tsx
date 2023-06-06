@@ -10,7 +10,7 @@ import { useDirectionStyles } from "./DirectionModule";
 export const Direction: React.FC<{
   url: string;
 }> = (props) => {
-  const classes = useDirectionStyles();
+  const {classes} = useDirectionStyles();
   return (
     <a
       href={props.url}

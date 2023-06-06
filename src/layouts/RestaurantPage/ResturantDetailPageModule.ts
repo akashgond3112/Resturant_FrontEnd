@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,13 +6,13 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useRestaurantPageStyles = makeStyles(() =>
-  createStyles({
+export const useRestaurantPageStyles = makeStyles()(() => {
+  return {
     main: {
       position: "relative",
       maxWidth: "80rem",
       maxHeight: "initial",
       margin: "1rem auto 0px",
     },
-  })
-);
+  };
+});

@@ -1,5 +1,4 @@
-import { createTheme } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -7,10 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-const theme = createTheme();
-
-export const useListStyles = makeStyles(() =>
-  createStyles({
+export const useListStyles = makeStyles()((theme) => {
+  return {
     formControl: {
       margin: theme.spacing(1),
       minWidth: 120,
@@ -35,5 +32,5 @@ export const useListStyles = makeStyles(() =>
       height: "75vh",
       overflow: "auto",
     },
-  })
-);
+  };
+});

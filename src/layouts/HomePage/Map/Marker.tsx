@@ -17,7 +17,7 @@ type MarkerProps = {
 };
 
 const Marker: FC<MarkerProps> = ({ lat, lng, place, isDesktop }) => {
-  const classes = useMapStyles();
+  const {classes} = useMapStyles();
 
   return (
     <div className={classes.markerContainer}>

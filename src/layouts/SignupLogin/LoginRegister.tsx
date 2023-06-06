@@ -15,7 +15,7 @@ type Props = {
 };
 
 function LoginRegister({}: Props) {
-  const classes = useLoginRegisterPageStyles();
+  const { classes } = useLoginRegisterPageStyles();
   const history = useHistory();
 
   const [displaySignInForm, setdisplaySignInForm] = useState(false);

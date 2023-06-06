@@ -80,6 +80,7 @@ export const ResturantListPage: React.FC<{}> = (props) => {
                         JSON.stringify(restaurant)
                       );
                     }}
+                    style={{ textDecoration: "none" }}
                   >
                     <ReturnResturant restaurant={restaurant} />
                   </NavLink>
@@ -96,6 +97,7 @@ export const ResturantListPage: React.FC<{}> = (props) => {
                         JSON.stringify(restaurant)
                       );
                     }}
+                    style={{ textDecoration: "none" }}
                   >
                     <ReturnResturant restaurant={restaurant} />
                   </NavLink>

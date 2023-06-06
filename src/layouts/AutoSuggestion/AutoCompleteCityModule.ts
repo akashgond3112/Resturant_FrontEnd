@@ -1,4 +1,6 @@
-import {makeStyles } from "@mui/styles";
+// import { makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
+
 import { alpha, createTheme } from "@mui/material";
 
 /*
@@ -10,7 +12,7 @@ import { alpha, createTheme } from "@mui/material";
 const theme = createTheme();
 
 
-export const useListStyles = makeStyles(() => ({
+export const useListStyles = makeStyles()(() => ({
   title: {
     display: "none",
     [theme.breakpoints.up("sm")]: {

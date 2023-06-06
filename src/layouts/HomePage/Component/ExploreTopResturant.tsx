@@ -8,7 +8,7 @@ import { useExploreRestauranStyles } from "./ExploreRestaurantsModules";
  */
 
 export const ExploreTopResturant = () => {
-  const classes = useExploreRestauranStyles();
+  const {classes} = useExploreRestauranStyles();
 
   return (
     <div className="p-5 mb-4 bg-dark header">

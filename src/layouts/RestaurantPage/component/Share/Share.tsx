@@ -13,7 +13,7 @@ type Props = {};
 function Share({}: Props) {
   const [isNotificationDisplayed, setIsNotificationDisplayed] = useState(false);
 
-  const classes = useShareStyles();
+  const {classes} = useShareStyles();
 
   return (
     <>

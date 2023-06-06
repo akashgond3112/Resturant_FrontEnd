@@ -1,4 +1,5 @@
-import { createStyles, makeStyles } from "@mui/styles";
+// import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,8 +7,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useLoginRegisterPageStyles = makeStyles(() =>
-  createStyles({
+export const useLoginRegisterPageStyles = makeStyles()((theme) => {
+  return {
     main: {
       textAlign: "center",
       display: "flex",
@@ -43,5 +44,5 @@ export const useLoginRegisterPageStyles = makeStyles(() =>
       marginTop: "1rem",
     },
     "@media (min-width: 769px)": {},
-  })
-);
+  };
+});

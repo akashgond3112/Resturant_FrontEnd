@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,8 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useShareStyles = makeStyles(() =>
-  createStyles({
+export const useShareStyles = makeStyles()(() => {
+  return {
     shareContainer: {
       height: "2.8rem",
       padding: "0px 1rem",
@@ -47,5 +47,5 @@ export const useShareStyles = makeStyles(() =>
       width: "calc(100% + 1rem)",
       paddingRight: "1rem",
     },
-  })
-);
+  };
+});

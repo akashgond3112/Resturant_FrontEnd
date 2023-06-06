@@ -48,6 +48,15 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## create a .env file under the root folder and add the following details
 REACT_APP_PORT=3000
-REACT_APP_BASE_URL=http://localhost:8080
+REACT_APP_BASE_URL=https://restauranthub.azurewebsites.net
 REACT_APP_GOOGLE_KEY=<REPLACE_WITH_YOUR_GOOGLE_API>
+
+## Refrences for technologies used.
+HTML = https://www.w3schools.com/html/default.asp
+CSS= https://developer.mozilla.org/en-US/docs/Web/CSS
+REACT = https://devdocs.io/react/
+AXIOS = https://axios-http.com/docs/intro
+MATERIAL UI= https://mui.com/material-ui/getting-started/overview/
+TYPESCRIPT = https://www.typescriptlang.org/docs/
+
 

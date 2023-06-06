@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.11",
-    "@mui/material": "^5.11.14",
-    "@mui/styles": "^5.11.13",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.4",
     "@react-google-maps/api": "^2.18.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -24,6 +23,7 @@
     "react-lazy-load": "^4.0.1",
     "react-router-dom": "^5.3.4",
     "react-scripts": "^5.0.1",
+    "tss-react": "^4.8.6",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },

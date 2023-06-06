@@ -15,7 +15,7 @@ import AuthContext from "../../../store/authContext";
 export const Section4: React.FC<{
   restaurantName: string;
 }> = (props) => {
-  const classes = useSection4Styles();
+  const {classes} = useSection4Styles();
 
   const sentimentEngineEnabled =
     process.env.REACT_APP_BASE_USE_SENTIMENT_ENGINE;

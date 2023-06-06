@@ -13,7 +13,7 @@ import img4 from "../../../Images/PublicImages/restaurant_4.png";
  */
 
 export const Section1: React.FC<{ restaurant: Restaurant }> = (props) => {
-  const classes = useSection1Styles();
+  const {classes} = useSection1Styles();
   const [loaded, setLoaded] = useState(false);
 
   const img1 = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference=${props.restaurant.photos[0].photo_reference}&key=${process.env.REACT_APP_GOOGLE_KEY}`;

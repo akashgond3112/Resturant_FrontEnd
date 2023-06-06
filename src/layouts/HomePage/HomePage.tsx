@@ -15,7 +15,7 @@ import { fetchRestaurants } from "../../api/stateAPI";
 
 export const HomePage = () => {
 
-  const classes = useHomePagePageStyles();
+  const {classes} = useHomePagePageStyles();
   const [places, setPlaces] = useState([]);
   const [coords, setCoords] = useState({ lat: 54.9677423, lng: -1.6224093 });
   const [bounds, setBounds] = useState({

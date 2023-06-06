@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,8 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useReviewStyles = makeStyles(() =>
-  createStyles({
+export const useReviewStyles = makeStyles()(() => {
+  return {
     main: {
       fontSize: "1.6rem",
     },
@@ -100,7 +100,7 @@ export const useReviewStyles = makeStyles(() =>
       alignItems: "center",
       justifyContent: "center",
       borderRadius: "50%",
-      cursor:"pointer"
+      cursor: "pointer",
     },
     addReviewCloseButtonSecondary: {
       display: "inline-block",
@@ -354,5 +354,5 @@ export const useReviewStyles = makeStyles(() =>
         transition: "transform 0.25s ease 0s",
       },
     },
-  })
-);
+  };
+});

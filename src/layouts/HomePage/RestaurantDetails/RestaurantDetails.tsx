@@ -25,7 +25,7 @@ export const RestaurantDetails: React.FC<{
   selected: boolean;
   refProp: any;
 }> = (props) => {
-  const classes = useRestaurantDetailsStyles();
+  const {classes} = useRestaurantDetailsStyles();
 
   if (props.selected) {
     props.refProp?.current?.scrollIntoView({

@@ -15,7 +15,7 @@ export const List: React.FC<{
   childClicked: any;
   isLoading: boolean;
 }> = (props) => {
-  const classes = useListStyles();
+  const {classes} = useListStyles();
   const [eleRefs, setEleRefs] = useState([]);
 
   useEffect(() => {

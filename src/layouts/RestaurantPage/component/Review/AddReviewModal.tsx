@@ -17,7 +17,7 @@ export const AddReview: React.FC<{
   setAddReviewButtonClicked: any;
   restaurantId: string;
 }> = (props) => {
-  const classes = useReviewStyles();
+  const {classes} = useReviewStyles();
   // const [showReviewModal, setshowReviewModal] = useState(false);
   const [diningOptionSelected, setDiningOptionSelected] = useState(true);
   const [deliveryOptionSelected, setDeliveryOptionSelected] = useState(false);

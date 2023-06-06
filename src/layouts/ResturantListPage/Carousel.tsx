@@ -108,11 +108,6 @@ export const Carousel: React.FC<{
           </div>
         </div>
       </div>
-      {/* <div className="homepage-carousel-title mt-3">
-        <a className="btn btn-outline-secondary btn-lg" href="#">
-          View More
-        </a>
-      </div> */}
     </div>
   );
 };

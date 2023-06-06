@@ -18,7 +18,7 @@ export const AutoCompleteCity: React.FC<{
   onLoad: Dispatcher<any>; // Function that gets called with AutocompleteService object when loaded
   onPlaceChanged: any; // Function that gets called when user selects a place from the list
 }> = (props) => {
-  const classes = useListStyles(); // Get CSS styles from useListStyles hook
+  const {classes} = useListStyles(); // Get CSS styles from useListStyles hook
 
   // Return Autocomplete component with search bar
   return (

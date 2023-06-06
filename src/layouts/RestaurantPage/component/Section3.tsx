@@ -13,7 +13,7 @@ import AuthContext from "../../../store/authContext";
 export const Section3: React.FC<{
   restaurantId: string;
 }> = (props) => {
-  const classes = useSection3Styles();
+  const {classes} = useSection3Styles();
 
   const [addReviewButtonClicked, setAddReviewButtonClicked] = useState(false);
   const ctx = useContext(AuthContext);

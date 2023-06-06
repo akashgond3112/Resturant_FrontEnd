@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,8 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useMapStyles = makeStyles(() =>
-  createStyles({
+export const useMapStyles = makeStyles()(() => {
+  return {
     paper: {
       padding: "10px",
       display: "flex",
@@ -31,5 +31,5 @@ export const useMapStyles = makeStyles(() =>
       height: "72px",
       minWidth: "128px",
     },
-  })
-);
+  };
+});

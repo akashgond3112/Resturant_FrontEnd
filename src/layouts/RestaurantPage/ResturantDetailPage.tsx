@@ -77,7 +77,7 @@ export const ResturantDetailPage: React.FC<{}> = (props) => {
     });
   }, []);
 
-  const classes = useRestaurantPageStyles();
+  const {classes} = useRestaurantPageStyles();
   return restaurant !== undefined ? (
     <div className={classes.main}>
       <Section1 restaurant={restaurant} />

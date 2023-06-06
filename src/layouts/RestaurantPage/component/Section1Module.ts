@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from "@mui/styles";
+import { makeStyles } from "tss-react/mui";
 
 /*
  * @author Team-Beta
@@ -6,8 +6,8 @@ import { createStyles, makeStyles } from "@mui/styles";
  * @Copyright (C) 2023 Newcastle University, UK
  */
 
-export const useSection1Styles = makeStyles(() =>
-  createStyles({
+export const useSection1Styles = makeStyles()(() => {
+  return {
     main: {
       position: "relative",
     },
@@ -73,5 +73,5 @@ export const useSection1Styles = makeStyles(() =>
       margin: "0px 0px 0.3rem",
       overflow: "hidden",
     },
-  })
-);
+  };
+});

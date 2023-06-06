@@ -19,7 +19,7 @@ export const Map: React.FC<{
   coords: any;
   places: any;
 }> = (props) => {
-  const classes = useMapStyles();
+  const {classes} = useMapStyles();
   const isDesktop = useMediaQuery("(min-width:600px)");
 
   return (
